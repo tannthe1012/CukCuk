@@ -1,0 +1,34 @@
+﻿body {
+    margin: 0;
+    font-family: GoogleSans-Regular;
+    font-size: 13px;
+    /* overflow:hidden; */
+}
+
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url('../../content/font/GoogleSans-Regular.otf') format('opentype');
+}
+
+.icon-report {
+    background-image: url('../../content/icon/report.png');
+}
+
+.icon-option {
+    background-image: url('../../content/icon/option.png');
+}
+
+@font-face {
+    font-family: 'GoogleSans-Bold';
+    src: url('../../content/font/GoogleSans-Bold.otf') format('opentype');
+}
+
+.icon-bell {
+    background-image: url('../../content/icon/bell.png');
+}
+.icon-search {
+
+    background-position: 16px center;
+    background-repeat: no-repeat;
+    background-image: url('../../content/icon/search.png');
+}

@@ -1,0 +1,61 @@
+﻿@font-face {
+    font-family: 'GoogleSans-Bold';
+    src: url('../../content/font/GoogleSans-Bold.otf') format('opentype');
+}
+
+.header {
+    width: calc(100% - 201px);
+    float: left;
+    height: 48px;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .header .header-dropdown {
+        padding: 12px 0px 0px 16px;
+        height: 100%;
+        display: flex;
+    }
+
+        .header .header-dropdown .header-dropdown-content {
+            margin-right: 10px;
+            font-family: GoogleSans-Bold;
+        }
+
+
+
+    .header .header-right {
+        height: 100%;
+        display: flex;
+        line-height: 48px;
+    }
+
+    .header .header-dropdown img {
+        width: 18px;
+        height: 18px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .header .header-right .header-right-icon {
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin: auto 0;
+    }
+
+    .header .header-right .header-right-avatar {
+        width: 36px;
+        height: 36px;
+        background-image: url('../../content/icon/avatar-default.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        border-radius: 50%;
+        margin: auto 16px;
+    }
+
+    .header .header-right > .icon-option {
+        margin: auto 16px;
+    }
