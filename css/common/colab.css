@@ -1,0 +1,39 @@
+.page-navigations {
+    display: flex;
+    height: 100%;
+    margin: 0 auto;
+  }
+  
+  .page-navigations a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    
+  }
+  
+  .page-navigations a.active {
+    background-color: #01B075;
+    color: white;
+  }
+  .paging-bar .paging-contentleft, .paging-bar .paging-contentright {
+    height: 100%;
+    line-height: 56px;
+    align-content: center;
+}
+ul {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 8px;
+}
+li {
+    display: inline;
+}
+a+a {
+    margin: 5px;
+}

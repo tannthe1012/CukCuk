@@ -32,3 +32,39 @@
     background-repeat: no-repeat;
     background-image: url('../../content/icon/search.png');
 }
+.btn-firstpage {
+    max-width: 40px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../content/icon/btn-firstpage.svg');
+}
+.btn-lastpage {
+    max-width: 40px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../content/icon/btn-lastpage.svg');
+}
+.btn-next-page {
+    margin-top: 10px;
+    max-width: 40px;
+    margin-left: 10px;
+    margin-right: 20px;
+    background-color: #ffffff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../content/icon/btn-next-page.svg');
+}
+.btn-prev-page {
+    margin-top: 10px;
+    max-width: 40px;
+    margin-left: 20px;
+    margin-right: 10px;
+    background-color: #ffffff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../../content/icon/btn-prev-page.svg');
+}

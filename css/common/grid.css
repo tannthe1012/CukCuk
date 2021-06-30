@@ -1,7 +1,8 @@
 .grid {
     
     width: 100%; 
-    
+    max-height: 78vh+1px;
+    overflow: auto;
 }
 table th,td {
     border-bottom: 1px solid #bbbbbb;
@@ -15,4 +16,7 @@ table {
     width: 200px;
     height: 400px;
     overflow:scroll;
+}
+table tbody tr:nth-child(even) {
+    background-color: #E9EBEE;
 }

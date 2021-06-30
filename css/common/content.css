@@ -6,7 +6,7 @@
     top: 49px;
     left: 201px; */
     float: left;
-    background-color: #2FBE8E;
+    background-color: #ffffff;
    
 }
 .content .filter-bar .filter-left{
@@ -85,5 +85,8 @@
 
 .content .paging-bar {
     height: 56px;
-    background-color: #ff0000;
+    background-color: #ffffff;
+    display: flex;
+    padding-left: 16px;
+    padding-right: 16px;
 }
