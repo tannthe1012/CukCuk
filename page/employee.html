@@ -13,6 +13,8 @@
     <link href="../css/common/grid.css" rel="stylesheet" />
     <link href="../css/common/input.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/common/colab.css">
+    <link rel="stylesheet" href="../css/page/formemployee.css">
+    <link rel="stylesheet" href="../css/common/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
@@ -74,7 +76,7 @@
         <div class="header-content">
             <div class="title">Danh sách nhân viên</div>
             <div class="content-feature">
-                <button class="m-btn m-btn-default">
+                <button class="m-btn m-btn-default" id="add-employee">
                     <div class="m-btn-icon icon-add"></div>
                     <div class="btn-text">Thêm Nhân Viên</div>
                 </button>
@@ -97,32 +99,35 @@
             </div>
         </div>
         <div class="grid gird-employee">
-            <table style="width:100%;padding-left: 16px; ;" cellspacing="0">
-                <!-- <colgroup>
-                   <col style="width: 150px;">
-                   <col style="width: 200px;">
-                   <col style="width: 100px;">
-                   <col style="width: 100px;">
-                   <col style="width: 150px;">
-                   <col style="width: 50px;">
-                   <col style="width: 150px;">
-                   <col style="width: 150px;">
-                   <col style="width: 150px;">
-                   <col style="width: 300px;">
-                    
-                </colgroup> -->
+            <table style="width:100%;padding-left: 16px;table-layout: fixed ;" cellspacing="0">
+                <colgroup>
+                    <col style="width: 120px;">
+                    <col style="width: 200px;">
+                    <col style="width: 150px;">
+                    <col style="width: 120px;">
+                    <col style="width: 250px;">
+                    <col style="width: 150px;">
+                    <col style="width: 250px;">
+                    <col style="width: 180px;">
+                    <col style="width: 150px;">
+                    <col style="width: 150px;">
+                    <col style="width: 200px;">
+                    <col style="width: 300px;">
+                </colgroup>
                 <thead>
                     <tr>
                         <th>Mã nhân viên</th>
                         <th>Họ và tên</th>
                         <th>Giới tính</th>
                         <th>Ngày sinh</th>
+                        <th>Địa chỉ</th>
                         <th>Điện thoại</th>
                         <th>Email</th>
                         <th>Chức vụ</th>
                         <th>Phòng ban</th>
                         <th>Mức lương cơ bản</th>
                         <th>Tình trạng công việc</th>
+                        <th>Sở Thích</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -131,19 +136,8 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
+                        <td style="white-space:nowrap" title="Dục Nội - Việt Hùng - Đông Anh - Hà Nội">Dục Nội - Việt
+                            Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -153,9 +147,10 @@
                     </tr>
                     <tr>
                         <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
+                        <td>Nguyễn Hữu Thị Linh Chi</td>
+                        <td>Không Xác Định</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -168,19 +163,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -193,6 +176,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -205,6 +189,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -217,6 +202,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -229,6 +215,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -241,6 +228,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -253,6 +241,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -265,6 +254,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -277,6 +267,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -289,6 +280,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -301,6 +293,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -313,6 +306,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -325,42 +319,7 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
+                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -374,6 +333,7 @@
 
             </table>
         </div>
+
         <div class="paging-bar">
             <div class="paging-contentleft">Hiển thị <span style="font-weight: 1000;">01-18/100</span> Lao động</div>
             <div class="page-navigations">
@@ -389,9 +349,153 @@
                 </ul>
                 <div class="m-btn btn-next-page"></div>
                 <div class="m-btn btn-lastpage"></div>
-                
+
             </div>
             <div class="paging-contentright"><span style="font-weight: 1000;">18</span> nhân viên/trang</div>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="form-employee">
+
+            <div class="close" id="btn-x-close"></div>
+            <div class="header-form">THÔNG TIN NHÂN VIÊN</div>
+            <div class="form-main">
+                <div class="avatar">
+                    <div class="img-avatar"></div>
+                    <div class="caption-avatar">
+                        <p>(Vui lòng chọn có định <br>dạng<br> .jpg,.jpeg,.png,.gif.)</p>
+                    </div>
+                </div>
+                <div class="form-user">
+                        <div class="form-user-top">
+                            <div class="content-form">A. THÔNG TIN CHUNG:</div>
+                            <div class="form-row">
+                                <div class="form-input">
+                                    <label for="MaNV">Mã nhân viên(<span style="color: brown;">*</span>)</label><br>
+                                    <input type="text" name="MaNV" value="NV000999">
+                                    
+                                </div>
+                                <div class="form-input">
+                                    <label for="name">Họ và tên(<span style="color: brown;">*</span>)</label><br>
+                                    <input type="text" value="Nguyễn Văn Mạnh">
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="form-input">
+                                    <label for="dateofbirth">Ngày sinh(<span style="color: brown;">*</span>)</label><br>
+                                    <input type="date" name="dateofbirth" id="" value="2000-08-06">
+                                    
+                                </div>
+                                <div class="form-input">
+                                    <label for="gender">Giới tính(<span style="color: brown;">*</span>)</label><br>
+                                    <select name="gender" id=""> 
+                                        <option value="">Nam</option>
+                                        <option value="">Nữ</option>
+                                        <option value="">Không Xác Định</option>
+                                    </select>
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="form-input">
+                                    <label for="personal-identity">Số CMTND/Căn cước(<span style="color: brown;">*</span>)</label><br>
+                                    <input type="text" name="personal-identity" value="NV000999">
+                                    
+                                </div>
+                                <div class="form-input">
+                                    <label for="date-identity">Ngày cấp</label><br>
+                                    <input type="date" name="date-identity" id="" value="2011-04-11">
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="form-input">
+                                    <label for="address-identity">Nơi cấp</label><br>
+                                    <input type="text" name="address-identity" value="Tỉnh Hà Nội" id="address-identity">
+                                    
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="form-input">
+                                    <label for="email">Email(<span style="color: brown;">*</span>)</label><br>
+                                    <input type="text" name="email" value="ngothetan2k@gmail.com">
+                                    
+                                </div>
+                                <div class="form-input">
+                                    <label for="phonenumber">Số điện thoại(<span style="color: brown;">*</span>)</label><br>
+                                    <input type="text" name="phonenumber" value="078973477">
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="form-user-bottom">
+                            <div class="content-form">B. THÔNG TIN CÔNG VIỆC</div>
+                            <div class="form-row">
+                                <div class="form-input">
+                                    <label for="position">Vị trí</label><br>
+                                    <select name="position" id=""> 
+                                        <option value="">Giám đốc</option>
+                                        <option value="">Nhân Viên</option>
+                                        <option value="">Thực tập sinh</option>
+                                    </select>
+                                    
+                                </div>
+                                <div class="form-input">
+                                    <label for="department">Phòng ban</label><br>
+                                    <input type="text" name="department" value="Phòng nhân sự">
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="form-input">
+                                    <label for="tax-code">Mã số thuế cá nhân</label><br>
+                                    <input type="text" name="tax-code" value="03248713248">
+                                    
+                                </div>
+                                <div class="form-input" id="form-salary">
+                                    <div id="vnd" style="font-style: italic;opacity: 0.8;">(VNĐ)</div>
+                                    <label for="salary">Mức lương cơ bản</label><br>
+                                    <input type="text" id="salary" name="salary" value="28.000.000">
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="form-input">
+                                    <label for="date-attend-comppany">Ngày gia nhập công ty</label><br>
+                                    <input type="date" name="date-attend-comppany" id="" value="2011-04-11">
+                                    
+                                </div>
+                                <div class="form-input">
+                                    <label for="work-status">Tình trạng công việc</label><br>
+                                    <select name="work-status" id=""> 
+                                        <option value="">Đang làm việc</option>
+                                        <option value="">Đã nghỉ việc</option>
+                                        <option value="">Đang nghỉ việc</option>
+                                    </select>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="form-button">
+                <div class="btn-close">Hủy</div>
+                <button class="m-btn m-btn-default">
+                    <div class="m-btn-icon icon-add"></div>
+                    <div class="btn-text">Lưu</div>
+                </button>
+            </div>
+
         </div>
     </div>
     <script src="/lib/jquery-3.6.0.min.js"></script>

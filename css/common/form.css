@@ -1,0 +1,210 @@
+.form-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .form-input {
+    width: 45%;
+} */
+
+.form-input {
+    width: calc((100% - 10px) / 2);
+}
+
+.form-input input {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 16px;
+    border: none;
+    border: 1px solid #E5E5E5;
+    height: 40px;
+    border-radius: 4px;
+    font-size: inherit;
+    font-family: inherit;
+    margin-top: 4px;
+}
+
+.content-form {
+    font-size: 15px;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.content-form:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: calc(100% + 5px);
+    width: 20%;
+    border-bottom: 3px solid #01B075;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+.form-user-top {
+    margin-bottom: 14px;
+}
+
+.modal select {
+    height: 40px;
+    padding-left: 10px;
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    border: 1px solid #E5E5E5;
+    height: 40px;
+    width: 100%;
+    margin-top: 4px;
+}
+#address-identity {
+    width: calc(100% + 6px);
+}
+/* #salary::after {
+    content: '(VNĐ)';
+    font-style: italic;
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    color: lemonchiffon;
+    font-size: 15px;
+    z-index: 99999;
+    background-color: lightgoldenrodyellow;
+} */
+#salary {
+    text-align: right;
+    padding-right: 53px;
+}
+#vnd {
+    position: absolute;
+    right: 16px;
+    top: 33px;
+}
+#form-salary {
+    position: relative;
+}
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    /* Location of the box */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.form-employee {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 35px;
+    border: 1px solid #888;
+    width: 40%;
+    height: 90%;
+}
+
+.header-form {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 24px 0px 0px 24px;
+    margin-bottom: 24px;
+}
+
+.close {
+    position: absolute;
+    background-position: center;
+    background-image: url(../../content/icon/x.svg);
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    top: 0px;
+    right: 0px;
+    opacity: 0.4;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-main {}
+
+.form-button {
+    height: 60px;
+    width: 100%;
+    padding: 0px;
+    background-color: #e9ebee;
+   
+}
+
+.form-main {
+    display: flex;
+    background-color: #ffffff;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: calc(100% -48px);
+    height: calc(100% - 132px);
+    margin-bottom: 24px;
+}
+
+.form-employee .form-main .avatar {
+    height: 100%;
+    width: calc(30%);
+    background-color: #ffffff;
+    margin-right: 24px;
+}
+
+.form-employee .form-main .form-user {
+    height: 100%;
+    width: calc(70%);
+   
+}
+
+.form-main .avatar .img-avatar {
+    background-image: url(../../content/img/default-avatar.jpg);
+    width: calc(100% - 2px);
+    padding-top: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 1px solid #BBBBBB;
+}
+
+.form-main .avatar .caption-avatar {
+    text-align: center;
+}
+
+.form-main .avatar .caption-avatar p {}
+
+.form-button {
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.form-button button {
+    margin-right: 24px;
+    margin-left: 16px;
+}
+.form-button .btn-close {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 30px;
+}
+.form-button .btn-close:hover {
+    background-color: #E5E5E5;
+}
