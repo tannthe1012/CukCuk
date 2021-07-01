@@ -16,7 +16,7 @@ $(document).ready(function() {
                     </tr>
     `;
     $('table tbody').append(data);
-    
+
     
     $("#add-employee").click(function() {
         $(".modal").css("display","block");
