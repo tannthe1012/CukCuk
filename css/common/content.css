@@ -12,6 +12,17 @@
 .content .filter-bar .filter-left{
    padding-left: 16px;
 }
+.filter-bar .filter-left select{
+    padding: 9px 16px;
+    border: none;
+    border-radius: 4px;
+    border: 1px solid #bbbbbb;
+    margin-left: 8px;
+ }
+ .filter-bar .filter-left select+select {
+     margin: 8px;
+ }
+
 .content .header-content {
     padding: 16px;
     display: flex;

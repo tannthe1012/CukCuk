@@ -1,23 +1,45 @@
 .grid {
-    
-    width: 100%; 
+    width: calc(100% - 32px);
     max-height: 78vh+1px;
     overflow: auto;
+    margin-left: 16px;
 }
-table th,td {
+
+table th, td {
     border-bottom: 1px solid #bbbbbb;
     padding: 10px 16px;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
+}
 
-}
 table {
-    width: 200px;
-    
-    height: 400px;
-    overflow:scroll;
+    empty-cells: show;
+    empty-cells: inherit;
+    empty-cells: initial;
+    empty-cells: unset;
 }
+
 table tbody tr:nth-child(even) {
     background-color: #E9EBEE;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 37px;
+    background: #bbbbbb;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #454545;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background: #ffffff;
 }

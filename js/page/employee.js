@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var modal = document.getElementsByClassName(".modal");
+    var modal = document.getElementById("modal");
     var data = `
                     <tr>
                         <td>NV532408</td>
@@ -25,8 +25,9 @@ $(document).ready(function() {
         $(".modal").css("display","none");
     })
     window.onclick = function(event) {
+        console.log(event.target);
         if (event.target == modal) {
-            $(".modal").css("display","none");
+            modal.style.display = "none";
         }
     }
 
