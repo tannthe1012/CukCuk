@@ -5,7 +5,8 @@
     margin-left: 16px;
 }
 
-table th, td {
+table th,
+td {
     border-bottom: 1px solid #bbbbbb;
     padding: 10px 16px;
     text-align: left;

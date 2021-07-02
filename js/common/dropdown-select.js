@@ -1,29 +1,28 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $("#dropdown-show").click(function () {
+    $("#dropdown-show").click(function() {
 
         if ($(".dropdown-hide").css('display') == 'none') {
             $("#dropdown-show i").css("transform", "rotate(180deg)");
+            $("#dropdown-show ").css("border-color", "#019160");
             $(".dropdown-hide").css("display", "block");
 
-        }
-        else if ($(".dropdown-hide").css("display") == "block") {
+        } else if ($(".dropdown-hide").css("display") == "block") {
             $("#dropdown-show i").css("transform", "none");
             $(".dropdown-hide").css("display", "none");
+            $("#dropdown-show").css("border-color", "#bbbbbb");
+            $("#dropdown-show ").css("border-color", "#bbbbbb");
         }
     })
-    $(".dropdown-hide .dropdown-select").click(function () {
-        
+    $(".dropdown-hide .dropdown-select").click(function() {
         var data = $(this).text();
-        $("#dropdown-show span").text(data)
+        $("#dropdown-show span").text(data);
         $("#dropdown-show i").css("transform", "none");
         $(".dropdown-hide").css("display", "none");
-        $(".dropdown-hide").find("i").css("opacity","0");
+        $(".dropdown-hide").find("i").css("opacity", "0");
         $(".dropdown-hide").find(".active").removeClass("active");
         $(this).addClass("active");
         $(this).find("i").css("opacity", "1");
-        
-
     })
     window.onclick = function(event) {
         console.log(event.target);
@@ -33,4 +32,3 @@ $(document).ready(function () {
         }
     }
 });
-
