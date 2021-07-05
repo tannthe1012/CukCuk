@@ -1,11 +1,16 @@
 .grid {
     width: calc(100% - 32px);
-    max-height: 78vh+1px;
+    max-height: calc(78vh - 9px);
     overflow: auto;
     margin-left: 16px;
 }
 
-table th, td {
+.gird-employee {
+    height: calc(100vh - 212px);
+}
+
+table th,
+td {
     border-bottom: 1px solid #bbbbbb;
     padding: 16px 16px;
     text-align: left;

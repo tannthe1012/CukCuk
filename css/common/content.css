@@ -7,32 +7,45 @@
     left: 201px; */
     float: left;
     background-color: #ffffff;
-   
 }
-.content .filter-bar .filter-left{
-   padding-left: 16px;
+
+.content .filter-bar .filter-left {
+    padding-left: 16px;
+    display: flex;
+    max-height: 40px;
 }
-.filter-bar .filter-left select{
-    padding: 9px 16px;
-    border: none;
-    border-radius: 4px;
-    border: 1px solid #bbbbbb;
+
+.filter-bar .filter-left .dropdown {
     margin-left: 8px;
- }
- .filter-bar .filter-left select+select {
-     margin: 8px;
- }
+    margin-right: 20px;
+}
 
 .content .header-content {
     padding: 16px;
     display: flex;
     align-items: center;
 }
+
+.filter-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 40px;
+}
+
+.filter-bar .filter-left {}
+
+.filter-bar .filter-right {
+    position: absolute;
+    right: 16px;
+}
+
 .content .header-content .title {
-   
     font-size: 20px;
     font-weight: bold;
 }
+
 .content .header-content .content-feature {
     position: absolute;
     right: 16px;
@@ -52,46 +65,51 @@
     border: none;
     cursor: pointer;
 }
+
 .m-btn:hover {
     background-color: #2FBE8E;
 }
+
 .m-btn .btn-text {
     margin-left: 8px;
 }
+
 .m-btn-icon {
     background-position: center;
 }
+
 .icon-add {
     width: 16px;
     height: 16px;
     background-image: url('../../content/icon/add.png');
-    
 }
+
 @font-face {
     font-family: 'GoogleSans-Regular';
     src: url('../../content/font/GoogleSans-Regular.otf') format('opentype');
 }
+
 .m-second-button {
-   background-color: #ffffff;
+    background-color: #ffffff;
     border-radius: 4px;
     height: 40px;
     color: #000000;
-    padding-left: 24px ;
+    padding-left: 24px;
     padding-right: 24px;
     text-align: center;
     outline: none;
     border: 1px solid #bbbbbb;
 }
+
 .m-second-button:hover {
     background-color: #e9ebee;
-
 }
+
 .m-btn-refresh {
     background-image: url('../../content/icon/refresh.png');
     background-repeat: no-repeat;
     background-position: center;
     width: 40px;
-    
 }
 
 .content .paging-bar {
