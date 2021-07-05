@@ -1,6 +1,6 @@
 .grid {
     width: calc(100% - 32px);
-    max-height: calc(78vh - 9px);
+    max-height: calc(78vh - 1px);
     overflow: auto;
     margin-left: 16px;
 }

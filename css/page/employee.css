@@ -62,7 +62,3 @@
     font-family: 'GoogleSans-Medium';
     src: url('../../content/font/GoogleSans-Medium.otf') format('opentype');
 }
-
-.gird-employee {
-    height: calc(100vh - 202px);
-}
