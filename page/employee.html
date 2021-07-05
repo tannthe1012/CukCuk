@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../css/common/colab.css">
     <link rel="stylesheet" href="../css/page/formemployee.css">
     <link rel="stylesheet" href="../css/common/form.css">
+    <link rel="stylesheet" href="../css/common/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../content/font/fontawesome-5.15.1/css/all.min.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
@@ -30,35 +31,41 @@
             </div>
         </div>
         <div class="navbar-content">
-            <div class="nav-item">
+            <a class="nav-item">
                 <div class="nav-item-icon" style="background-image: url('../content/icon/dashboard.png')">
                 </div>
                 <div class="nav-item-content">Tổng Quan</div>
-            </div>
-            <div class="nav-item">
+            </a>
+            <a class="nav-item">
                 <div class="nav-item-icon" style="background-image: url('../content/icon/report.png')">
 
                 </div>
                 <div class="nav-item-content">Báo Cáo</div>
-            </div>
-            <div class="nav-item">
+            </a>
+            <a class="nav-item">
                 <div class="nav-item-icon" style="background-image: url('../content/icon/dashboard.png');">
 
                 </div>
                 <div class="nav-item-content">Mua Hàng</div>
-            </div>
-            <div class="nav-item">
+            </a>
+            <a class="nav-item" href="employee.html" style="text-decoration: none;color: #000000;">
                 <div class="nav-item-icon" style="background-image: url('../content/icon/dic-employee.png');">
 
                 </div>
                 <div class="nav-item-content">Danh Mục Nhân Viên</div>
-            </div>
-            <div class="nav-item">
+            </a>
+            <a class="nav-item" href="customer.html" style="text-decoration: none;color: #000000;">
+                <div class="nav-item-icon" style="background-image: url('../content/icon/dic-employee.png');">
+
+                </div>
+                <div class="nav-item-content" >Danh Mục Khách Hàng</div>
+            </a>
+            <a class="nav-item">
                 <div class="nav-item-icon" style="background-image: url('../content/icon/setting.png');">
 
                 </div>
                 <div class="nav-item-content">Thiết Lập Hệ Thống</div>
-            </div>
+            </a>
 
         </div>
     </div>
@@ -123,7 +130,7 @@
                     <col style="width: 120px;">
                     <col style="width: 200px;">
                     <col style="width: 150px;">
-                    <col style="width: 120px;">
+                    <col style="width: 180px;">
                     <col style="width: 250px;">
                     <col style="width: 150px;">
                     <col style="width: 250px;">
@@ -137,8 +144,8 @@
                     <tr>
                         <th>Mã nhân viên</th>
                         <th>Họ và tên</th>
-                        <th>Giới tính</th>
-                        <th>Ngày sinh</th>
+                        <th class="text-align-center">Giới tính</th>
+                        <th class="text-align-center">Ngày sinh</th>
                         <th>Địa chỉ</th>
                         <th>Điện thoại</th>
                         <th>Email</th>
@@ -150,7 +157,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <!-- <tr>
                         <td>NV532408</td>
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
@@ -166,6 +173,8 @@
                     </tr>
                     <tr>
                         <td>NV532408</td>
+<<<<<<< HEAD
+=======
                         <td>Nguyễn Hữu Thị Linh Chi</td>
                         <td>Không Xác Định</td>
                         <td>10/12/2000</td>
@@ -180,10 +189,27 @@
                     </tr>
                     <tr>
                         <td>NV532408</td>
+>>>>>>> 37120d78e6628d6a3c59a7d2fa3de972dd007543
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
+                        <td style="white-space:nowrap" title="Dục Nội - Việt Hùng - Đông Anh - Hà Nội">Dục Nội - Việt
+                            Hùng - Đông Anh - Hà Nội</td>
+                        <td>0984984467</td>
+                        <td>ngothetan2k@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng Đào tạo</td>
+                        <td>19.156.547</td>
+                        <td>Đang làm việc</td>
+                       
+                    </tr>
+                    <tr>
+                        <td>NV532408</td>
+                        <td>Ngô Thế Tấn</td>
+                        <td>Nam</td>
+                        <td>10/12/2000</td>
+                        <td style="white-space:nowrap" title="Dục Nội - Việt Hùng - Đông Anh - Hà Nội">Dục Nội - Việt
+                            Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -196,7 +222,8 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
+                        <td style="white-space:nowrap" title="Dục Nội - Việt Hùng - Đông Anh - Hà Nội">Dục Nội - Việt
+                            Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -209,7 +236,22 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
+                        <td style="white-space:nowrap" title="Dục Nội - Việt Hùng - Đông Anh - Hà Nội">Dục Nội - Việt
+                            Hùng - Đông Anh - Hà Nội</td>
+                        <td>0984984467</td>
+                        <td>ngothetan2k@gmail.com</td>
+                        <td>Nhân viên</td>
+                        <td>Phòng Đào tạo</td>
+                        <td>19.156.547</td>
+                        <td>Đang làm việc</td>
+                    </tr>   
+                    <tr>
+                        <td>NV532408</td>
+                        <td>Ngô Thế Tấn</td>
+                        <td>Nam</td>
+                        <td>10/12/2000</td>
+                        <td style="white-space:nowrap" title="Dục Nội - Việt Hùng - Đông Anh - Hà Nội">Dục Nội - Việt
+                            Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
@@ -222,132 +264,16 @@
                         <td>Ngô Thế Tấn</td>
                         <td>Nam</td>
                         <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
+                        <td style="white-space:nowrap" title="Dục Nội - Việt Hùng - Đông Anh - Hà Nội">Dục Nội - Việt
+                            Hùng - Đông Anh - Hà Nội</td>
                         <td>0984984467</td>
                         <td>ngothetan2k@gmail.com</td>
                         <td>Nhân viên</td>
                         <td>Phòng Đào tạo</td>
                         <td>19.156.547</td>
                         <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                    <tr>
-                        <td>NV532408</td>
-                        <td>Ngô Thế Tấn</td>
-                        <td>Nam</td>
-                        <td>10/12/2000</td>
-                        <td>Dục Nội - Việt Hùng - Đông Anh - Hà Nội</td>
-                        <td>0984984467</td>
-                        <td>ngothetan2k@gmail.com</td>
-                        <td>Nhân viên</td>
-                        <td>Phòng Đào tạo</td>
-                        <td>19.156.547</td>
-                        <td>Đang làm việc</td>
-                    </tr>
-                </tbody>
+                    </tr>    -->
+                </tbody>    
 
 
 
