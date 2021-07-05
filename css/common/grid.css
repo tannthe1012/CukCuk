@@ -7,12 +7,15 @@
 
 table th, td {
     border-bottom: 1px solid #bbbbbb;
-    padding: 10px 16px;
+    padding: 16px 16px;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+table tr:hover {
+    background-color: #ebe4eb;
+}
 table {
     empty-cells: show;
     empty-cells: inherit;
@@ -21,7 +24,7 @@ table {
 }
 
 table tbody tr:nth-child(even) {
-    background-color: #E9EBEE;
+    background-color: #e9ebee;
 }
 
 ::-webkit-scrollbar {
