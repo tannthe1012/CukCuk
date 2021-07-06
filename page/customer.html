@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link rel="stylesheet" href="../css/common/dropdown.css">
     <link href="../css/common/content.css" rel="stylesheet" />
     <link href="../css/common/header.css" rel="stylesheet" />
     <link href="../css/common/navbar.css" rel="stylesheet" />
@@ -81,7 +82,7 @@
     </div>
     <div class="content">
         <div class="header-content">
-            <div class="title">Danh sách nhân viên</div>
+            <div class="title">Danh sách khách hàng</div>
             <div class="content-feature">
                 <button class="m-btn m-btn-default" id="add-employee">
                     <div class="m-btn-icon icon-add"></div>
@@ -91,20 +92,31 @@
         </div>
         <div class="filter-bar">
             <div class="filter-left">
-                <input class="icon-search" type="text" placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại"
-                    style="padding-left: 40px;width: 250px;">
-                <select name="" id="">
-                    <option value="">Tất cả phòng ban</option>
-                    <option value="">Tất cả phòng ban</option>
-                    <option value="">Tất cả phòng ban</option>
-                    <option value="">Tất cả phòng ban</option>
-                </select>
-                <select name="" id="">
-                    <option value="">Tất cả vị trí</option>
-                    <option value="">Tất cả phòng ban</option>
-                    <option value="">Tất cả phòng ban</option>
-                    <option value="">Tất cả phòng ban</option>
-                </select>
+                <input class="icon-search" type="text" placeholder="Tìm kiếm theo Mã, Tên hoặc Số điện thoại" style="padding-left: 40px;width: 250px;">
+                <div class="dropdown">
+                    <div class="dropdown-show" id="dropdown-show">
+                        <span>Tất cả phòng ban</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    <div class="dropdown-hide">
+                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng Nhân sự</div>
+                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng Đào tạo</div>
+                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng Nghiên cứu</div>
+                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng Phát triển</div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropdown-show" id="dropdown-show2">
+                        <span>Tất cả phòng ban</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                    <div class="dropdown-hide">
+                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng Nhân sự</div>
+                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng Đào tạo</div>
+                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng Nghiên cứu</div>
+                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng Phát triển</div>
+                    </div>
+                </div>
             </div>
             <div class="filter-right">
                 <button class="m-btn-refresh m-second-button">
@@ -123,24 +135,21 @@
                     <col style="width: 250px;">
                     <col style="width: 180px;">
                     <col style="width: 150px;">
-                    <col style="width: 150px;">
-                    <col style="width: 200px;">
-                    
+
+
                 </colgroup>
                 <thead>
                     <tr>
-                        <th>Mã nhân viên</th>
-                        <th>Họ và tên</th>
-                        <th class="text-align-center">Giới tính</th>
-                        <th class="text-align-center">Ngày sinh</th>
-                        <th>Địa chỉ</th>
-                        <th>Điện thoại</th>
-                        <th>Email</th>
-                        <th>Chức vụ</th>
-                        <th>Phòng ban</th>
-                        <th>Mức lương cơ bản</th>
-                        <th>Tình trạng công việc</th>
-                        
+                        <th fieldName="EmployeeCode">Mã nhân viên</th>
+                        <th fieldName="FullName">Họ và tên</th>
+                        <th fieldName="GenderName" class="text-align-center">Giới tính</th>
+                        <th fieldName="DateOfBirth" class="text-align-center">Ngày sinh</th>
+                        <th fieldName="Address">Địa chỉ</th>
+                        <th fieldName="PhoneNumber">Điện thoại</th>
+                        <th fieldName="Email">Email</th>
+                        <th fieldName="MartialStatusName">Trạng thái hôn nhân</th>
+                        <th fieldName="PersonalTaxCode">Mã số thuế</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -244,7 +253,7 @@
                         <td>19.156.547</td>
                         <td>Đang làm việc</td>
                     </tr>    -->
-                </tbody>    
+                </tbody>
 
 
 
@@ -284,125 +293,125 @@
                     </div>
                 </div>
                 <div class="form-user">
-                        <div class="form-user-top">
-                            <div class="content-form">A. THÔNG TIN CHUNG:</div>
-                            <div class="form-row">
-                                <div class="form-input">
-                                    <label for="MaNV">Mã nhân viên(<span style="color: brown;">*</span>)</label><br>
-                                    <input type="text" name="MaNV" value="NV000999">
-                                    
-                                </div>
-                                <div class="form-input">
-                                    <label for="name">Họ và tên(<span style="color: brown;">*</span>)</label><br>
-                                    <input type="text" value="Nguyễn Văn Mạnh">
-                                    
-                                </div>
-                                
+                    <div class="form-user-top">
+                        <div class="content-form">A. THÔNG TIN CHUNG:</div>
+                        <div class="form-row">
+                            <div class="form-input">
+                                <label for="MaNV">Mã nhân viên(<span style="color: brown;">*</span>)</label><br>
+                                <input type="text" name="MaNV" value="NV000999">
+
                             </div>
-                            <div class="form-row">
-                                <div class="form-input">
-                                    <label for="dateofbirth">Ngày sinh(<span style="color: brown;">*</span>)</label><br>
-                                    <input type="date" name="dateofbirth" id="" value="2000-08-06">
-                                    
-                                </div>
-                                <div class="form-input">
-                                    <label for="gender">Giới tính(<span style="color: brown;">*</span>)</label><br>
-                                    <select name="gender" id=""> 
+                            <div class="form-input">
+                                <label for="name">Họ và tên(<span style="color: brown;">*</span>)</label><br>
+                                <input type="text" value="Nguyễn Văn Mạnh">
+
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-input">
+                                <label for="dateofbirth">Ngày sinh(<span style="color: brown;">*</span>)</label><br>
+                                <input type="date" name="dateofbirth" id="" value="2000-08-06">
+
+                            </div>
+                            <div class="form-input">
+                                <label for="gender">Giới tính(<span style="color: brown;">*</span>)</label><br>
+                                <select name="gender" id=""> 
                                         <option value="">Nam</option>
                                         <option value="">Nữ</option>
                                         <option value="">Không Xác Định</option>
                                     </select>
-                                    
-                                </div>
-                                
+
                             </div>
-                            <div class="form-row">
-                                <div class="form-input">
-                                    <label for="personal-identity">Số CMTND/Căn cước(<span style="color: brown;">*</span>)</label><br>
-                                    <input type="text" name="personal-identity" value="NV000999">
-                                    
-                                </div>
-                                <div class="form-input">
-                                    <label for="date-identity">Ngày cấp</label><br>
-                                    <input type="date" name="date-identity" id="" value="2011-04-11">
-                                    
-                                </div>
-                                
-                            </div>
-                            <div class="form-row">
-                                <div class="form-input">
-                                    <label for="address-identity">Nơi cấp</label><br>
-                                    <input type="text" name="address-identity" value="Tỉnh Hà Nội" id="address-identity">
-                                    
-                                </div>
-                                
-                                
-                            </div>
-                            <div class="form-row">
-                                <div class="form-input">
-                                    <label for="email">Email(<span style="color: brown;">*</span>)</label><br>
-                                    <input type="text" name="email" value="ngothetan2k@gmail.com">
-                                    
-                                </div>
-                                <div class="form-input">
-                                    <label for="phonenumber">Số điện thoại(<span style="color: brown;">*</span>)</label><br>
-                                    <input type="text" name="phonenumber" value="078973477">
-                                    
-                                </div>
-                                
-                            </div>
+
                         </div>
-                        <div class="form-user-bottom">
-                            <div class="content-form">B. THÔNG TIN CÔNG VIỆC</div>
-                            <div class="form-row">
-                                <div class="form-input">
-                                    <label for="position">Vị trí</label><br>
-                                    <select name="position" id=""> 
+                        <div class="form-row">
+                            <div class="form-input">
+                                <label for="personal-identity">Số CMTND/Căn cước(<span style="color: brown;">*</span>)</label><br>
+                                <input type="text" name="personal-identity" value="NV000999">
+
+                            </div>
+                            <div class="form-input">
+                                <label for="date-identity">Ngày cấp</label><br>
+                                <input type="date" name="date-identity" id="" value="2011-04-11">
+
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-input">
+                                <label for="address-identity">Nơi cấp</label><br>
+                                <input type="text" name="address-identity" value="Tỉnh Hà Nội" id="address-identity">
+
+                            </div>
+
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-input">
+                                <label for="email">Email(<span style="color: brown;">*</span>)</label><br>
+                                <input type="text" name="email" value="ngothetan2k@gmail.com">
+
+                            </div>
+                            <div class="form-input">
+                                <label for="phonenumber">Số điện thoại(<span style="color: brown;">*</span>)</label><br>
+                                <input type="text" name="phonenumber" value="078973477">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-user-bottom">
+                        <div class="content-form">B. THÔNG TIN CÔNG VIỆC</div>
+                        <div class="form-row">
+                            <div class="form-input">
+                                <label for="position">Vị trí</label><br>
+                                <select name="position" id=""> 
                                         <option value="">Giám đốc</option>
                                         <option value="">Nhân Viên</option>
                                         <option value="">Thực tập sinh</option>
                                     </select>
-                                    
-                                </div>
-                                <div class="form-input">
-                                    <label for="department">Phòng ban</label><br>
-                                    <input type="text" name="department" value="Phòng nhân sự">
-                                    
-                                </div>
-                                
+
                             </div>
-                            <div class="form-row">
-                                <div class="form-input">
-                                    <label for="tax-code">Mã số thuế cá nhân</label><br>
-                                    <input type="text" name="tax-code" value="03248713248">
-                                    
-                                </div>
-                                <div class="form-input" id="form-salary">
-                                    <div id="vnd" style="font-style: italic;opacity: 0.8;">(VNĐ)</div>
-                                    <label for="salary">Mức lương cơ bản</label><br>
-                                    <input type="text" id="salary" name="salary" value="28.000.000">
-                                    
-                                </div>
-                                
+                            <div class="form-input">
+                                <label for="department">Phòng ban</label><br>
+                                <input type="text" name="department" value="Phòng nhân sự">
+
                             </div>
-                            <div class="form-row">
-                                <div class="form-input">
-                                    <label for="date-attend-comppany">Ngày gia nhập công ty</label><br>
-                                    <input type="date" name="date-attend-comppany" id="" value="2011-04-11">
-                                    
-                                </div>
-                                <div class="form-input">
-                                    <label for="work-status">Tình trạng công việc</label><br>
-                                    <select name="work-status" id=""> 
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-input">
+                                <label for="tax-code">Mã số thuế cá nhân</label><br>
+                                <input type="text" name="tax-code" value="03248713248">
+
+                            </div>
+                            <div class="form-input" id="form-salary">
+                                <div id="vnd" style="font-style: italic;opacity: 0.8;">(VNĐ)</div>
+                                <label for="salary">Mức lương cơ bản</label><br>
+                                <input type="text" id="salary" name="salary" value="28.000.000">
+
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-input">
+                                <label for="date-attend-comppany">Ngày gia nhập công ty</label><br>
+                                <input type="date" name="date-attend-comppany" id="" value="2011-04-11">
+
+                            </div>
+                            <div class="form-input">
+                                <label for="work-status">Tình trạng công việc</label><br>
+                                <select name="work-status" id=""> 
                                         <option value="">Đang làm việc</option>
                                         <option value="">Đã nghỉ việc</option>
                                         <option value="">Đang nghỉ việc</option>
                                     </select>
-                                    
-                                </div>
-                                
+
                             </div>
+
                         </div>
+                    </div>
                 </div>
             </div>
             <div class="form-button">
@@ -415,9 +424,10 @@
 
         </div>
     </div>
-    <script src="/lib/jquery-3.6.0.min.js"></script>
-    <script src="/js/common/common.js"></script>
-    <script src="/js/page/customer.js"></script>
-</body>
+    <script src="../lib/jquery-3.6.0.min.js"></script>
+    <script src="../js/common/common.js"></script>
+    <script src="../js/common/base.js"></script>
+    <script src="../js/page/customer.js"></script>
+
 
 </html>

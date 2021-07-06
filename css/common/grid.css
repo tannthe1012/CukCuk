@@ -52,3 +52,7 @@ th {
     top: 0;
     background: #ffffff;
 }
+
+.white-space {
+    white-space: nowrap;
+}

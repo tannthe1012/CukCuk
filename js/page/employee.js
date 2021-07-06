@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    loadData();
+    new EmployeeJS();
     var modal = document.getElementById("modal");
-
-
-
+    $("#employee-btn-close").click(function() {
+        $(".modal").css("display", "none");
+    })
     $("#add-employee").click(function() {
         $(".modal").css("display", "block");
     })
@@ -17,74 +17,42 @@ $(document).ready(function() {
         }
     }
 
-})
-
-function loadData() {
-    $.ajax({
-        url: "http://cukcuk.manhnv.net/v1/Employees",
-        method: "GET",
-        //Get : Lấy dữ liệu
-
-    }).done(function(res) {
-        var data = res;
-
-
-        $.each(data, function(index, item) {
-            var checkbox = "";
-            if (item.Gender == null)
-                checkbox = '<input type="checkbox"/>';
-            else if (item.Gender > 0 && item.Gender < 3) {
-                checkbox = '<input type="checkbox" checked/>';
-            } else {
-                checkbox = '<input type="checkbox"/>';
-            }
-
-            var tr = $(`<tr>
-                        <td>` + item.EmployeeCode + `</td>
-                        <td>` + item['FullName'] + `</td>
-                        <td class="text-align-center">` + checkbox + `</td>
-                        <td class="text-align-center">` + formatDate(item.DateOfBirth) + `</td>
-                        <td style="white-space:nowrap" title="` + item.Address + `">` + item.Address + `</td>
-                        <td>` + item.PhoneNumber + `</td>
-                        <td>` + item.Email + `</td>
-                        <td>` + item.PositionName + `</td>
-                        <td>` + item.DepartmentName + `</td>
-                        <td class="text-align-right">` + formatMoney(item.Salary) + `</td>
-                        <td>` + item.WorkStatus + `</td>
-                        
-                    </tr>
-            `);
-            $('table tbody').append(tr);
-        })
-    }).fail(function(res) {
-
-    })
-}
-
-function formatDate(date) {
-    var date = new Date(date);
-
-
-    var day = date.getDate();
-    month = date.getMonth() + 1;
-    year = date.getFullYear();
-    day = day > 9 ? day : `0${day}`;
-    month = month > 9 ? month : `0${month}`;
-    return day + '/' + month + '/' + year;
-
-
-}
+});
 /**
- * Hàm định dạng hiển thị tiền têk
- * @param {Number} money số tiền
- * Created: NTTan (5/7/2021)
+ * Class quản lí các sự kiện cho trang employee
+ * CreatedBY: NTTan (6/7/2021)
  */
-function formatMoney(money) {
-    if (money == null)
-        return "0"
-    else
-        return money.toLocaleString("it-IT");
-    // return money.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+class EmployeeJS extends BaseJS{
+    constructor() {
+        // this.loadData();
+        super();
+    };
+    setDataURL() {
+        this.getDataURL = "http://cukcuk.manhnv.net/v1/Employees";
+    }
+    
+    /**
+     * Thêm dữ liệu
+     * CreatedBY: NTTan (6/7/2021)
+     */
+    add() {
+
+    };
+    /**
+     * Sửa dữ liệu
+     * CreatedBY: NTTan (6/7/2021)
+     */
+    edit() {
+
+    };
+    /**
+     * Xóa dữ liệu
+     * CreatedBY: NTTan (6/7/2021)
+     */
+    delete() {
+
+    };
 }
 
-console.log(formatMoney(32197312));
+
+

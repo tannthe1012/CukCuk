@@ -2,17 +2,20 @@ $(document).ready(function() {
 
     $(".dropdown-show").click(function() {
         //if (.dropdown - show).style.
-
+        var flag = true;
+        if ($(this).siblings(".dropdown-hide").css("display") != "none") {
+            flag = false;
+        }
+        if (flag == true) {
+            $(".dropdown-show").removeClass("dropdown-selector-active");
+            $(".dropdown-show").siblings(".dropdown-hide").hide();
+            $(".dropdown-show").children(".dropdown-icon").removeClass("dropdown-icon-active");
+        }
         $(this).toggleClass("dropdown-selector-active");
         $(this).siblings(".dropdown-hide").toggle();
         $(this).children(".dropdown-icon").toggleClass("dropdown-icon-active");
 
-        // } else {
 
-        //     $(".dropdown-show").removeClass("dropdown-selector-active");
-        //     $(".dropdown-show").siblings(".dropdown-hide").hide();
-        //     $(".dropdown-show").children(".dropdown-icon").removeClass("dropdown-icon-active");
-        // }
 
     })
     $(".dropdown-hide .dropdown-select").click(function() {
