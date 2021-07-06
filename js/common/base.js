@@ -12,32 +12,47 @@ class BaseJS {
     initEvents() {
         // sự kiện click khi nhấn vào thêm mới
         $("#btn-add-employee").click(function() {
-                // Hiển thị layout modal Thông tin chi tiết nhân viên
-                $(".modal").show();
-            })
-            // ấn form chi tiết khi ấn dấu button hủy
+            // Hiển thị layout modal Thông tin chi tiết nhân viên
+            $(".modal").show();
+        });
+        // ấn form chi tiết khi ấn dấu button hủy
         $("#employee-btn-close").click(function() {
-                $(".modal").hide();
-            })
-            // ấn form chi tiết khi nhấn x
+            $(".modal").hide();
+        });
+        // ấn form chi tiết khi nhấn x
         $("#btn-x-close").click(function() {
-                $(".modal").hide();
-            })
-            // Load lại dữ liệu khi nhấp vào button nạp
+            $(".modal").hide();
+        });
+        // Load lại dữ liệu khi nhấp vào button nạp
         $("#btn-refresh").click(function() {
-                this.loadData();
-            }.bind(this))
-            // Lưu dữ diệu
+            this.loadData();
+        }.bind(this));
+        // Lưu dữ diệu
         $("#btn-save").click(function() {
-                alert("đây là cảnh báo của nút luu");
-            })
-            // Hiện thị thông tin chi tiết khi nhấp vào 1 bản ghi trên danh sách dữ liệu
+            // validate dữ liệu
+
+            // Thu thập thông tin dữ liệu
+
+            // Gọi service tương ứng lưu dữ liệu
+
+            // Sau khi lưu thành công thì 
+            // đưa ra thông báo
+            // ẩn form chi tiết 
+            // load lại dữ liệu
+        });
+        // Hiện thị thông tin chi tiết khi nhấp vào 1 bản ghi trên danh sách dữ liệu
         $('table tbody').on('dblclick', 'tr', function() {
-                $(".modal").show();
-            })
-            // $('tr').dbclick(function() {
-            //     $(".modal").show();
-            // })
+            $(".modal").show();
+        });
+        $('.input-required').blur(function() {
+            // Kiem tra dữ liệu đã nhập, nếu bỏ trông thì cảnh báo
+            var value = $(this).val();
+            if (!value) {
+                $(this).addClass("border-red");
+            } else {
+                $(this).removeClass("border-red");
+            }
+        });
     }
 
     /**

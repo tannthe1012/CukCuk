@@ -131,6 +131,10 @@
     margin-top: 4px;
 }
 
+.form-input input:focus {
+    border-color: #01B075;
+}
+
 label {
     margin-bottom: 8px;
 }
@@ -192,4 +196,8 @@ label {
 
 .form-button .btn-close:hover {
     background-color: #E5E5E5;
+}
+
+input.border-red {
+    border: 1px solid #FF4747;
 }
