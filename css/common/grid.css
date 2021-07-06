@@ -21,6 +21,7 @@ td {
 table tr:hover {
     background-color: #ebe4eb;
 }
+
 table {
     empty-cells: show;
     empty-cells: inherit;
@@ -38,7 +39,7 @@ table tbody tr:nth-child(even) {
 }
 
 ::-webkit-scrollbar-track {
-    margin-top: 37px;
+    margin-top: 46px;
     background: #bbbbbb;
 }
 

@@ -44,7 +44,6 @@
 
 .dropdown-show i {
     font-size: 16px;
-    transform: none;
 }
 
 .dropdown {
@@ -54,4 +53,12 @@
 .dropdown .active {
     background-color: #01B075;
     color: #ffffff;
+}
+
+.dropdown-icon-active {
+    transform: rotate(180deg);
+}
+
+.dropdown-selector-active {
+    border-color: #019160;
 }

@@ -1,34 +1,36 @@
 $(document).ready(function() {
 
-    $("#dropdown-show").click(function() {
+    $(".dropdown-show").click(function() {
+        //if (.dropdown - show).style.
 
-        if ($(".dropdown-hide").css('display') == 'none') {
-            $("#dropdown-show i").css("transform", "rotate(180deg)");
-            $("#dropdown-show ").css("border-color", "#019160");
-            $(".dropdown-hide").css("display", "block");
+        $(this).toggleClass("dropdown-selector-active");
+        $(this).siblings(".dropdown-hide").toggle();
+        $(this).children(".dropdown-icon").toggleClass("dropdown-icon-active");
 
-        } else if ($(".dropdown-hide").css("display") == "block") {
-            $("#dropdown-show i").css("transform", "none");
-            $(".dropdown-hide").css("display", "none");
-            $("#dropdown-show").css("border-color", "#bbbbbb");
-            $("#dropdown-show ").css("border-color", "#bbbbbb");
-        }
+        // } else {
+
+        //     $(".dropdown-show").removeClass("dropdown-selector-active");
+        //     $(".dropdown-show").siblings(".dropdown-hide").hide();
+        //     $(".dropdown-show").children(".dropdown-icon").removeClass("dropdown-icon-active");
+        // }
+
     })
     $(".dropdown-hide .dropdown-select").click(function() {
         var data = $(this).text();
-        $("#dropdown-show span").text(data);
-        $("#dropdown-show i").css("transform", "none");
-        $(".dropdown-hide").css("display", "none");
-        $(".dropdown-hide").find("i").css("opacity", "0");
-        $(".dropdown-hide").find(".active").removeClass("active");
+        $(this).parents(".dropdown-hide").siblings(".dropdown-show").children("span").text(data);
+        $(this).parents(".dropdown-hide").siblings(".dropdown-show").children("i").toggleClass("dropdown-icon-active");
+        $(this).parents(".dropdown-hide").toggle();
+        $(this).parents(".dropdown-hide").find("i").css("opacity", "0");
+        $(this).parents(".dropdown-hide").find(".active").removeClass("active");
         $(this).addClass("active");
         $(this).find("i").css("opacity", "1");
+        $(this).parents(".dropdown-hide").siblings(".dropdown-show").toggleClass("dropdown-selector-active");
     })
     window.onclick = function(event) {
         console.log(event.target);
         if (!event.target.matches(".dropdown *")) {
             $(".dropdown-hide").css("display", "none");
-            $("#dropdown-show i").css("transform", "none");
+            $(".dropdown-show i").css("transform", "none");
         }
     }
 });

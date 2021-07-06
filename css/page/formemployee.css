@@ -47,7 +47,8 @@
     opacity: 0.4;
 }
 
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
@@ -100,5 +101,3 @@
 }
 
 .form-main .avatar .caption-avatar p {}
-
-

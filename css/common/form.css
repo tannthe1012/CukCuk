@@ -2,7 +2,9 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    max-height: 70px;
 }
+
 
 /* .form-input {
     width: 45%;
@@ -28,7 +30,7 @@
 .content-form {
     font-size: 15px;
     position: relative;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .content-form:after {
@@ -59,9 +61,12 @@ label {
     width: 100%;
     margin-top: 4px;
 }
+
 #address-identity {
     width: calc(100% + 6px);
 }
+
+
 /* #salary::after {
     content: '(VNĐ)';
     font-style: italic;
@@ -73,18 +78,22 @@ label {
     z-index: 99999;
     background-color: lightgoldenrodyellow;
 } */
+
 #salary {
     text-align: right;
     padding-right: 53px;
 }
+
 #vnd {
     position: absolute;
     right: 16px;
     top: 33px;
 }
+
 #form-salary {
     position: relative;
 }
+
 .modal {
     display: none;
     /* Hidden by default */
@@ -95,7 +104,6 @@ label {
     /* Location of the box */
     width: 100%;
     /* Full width */
-    height: 100%;
     /* Full height */
     overflow: auto;
     /* Enable scroll if needed */
@@ -109,17 +117,16 @@ label {
     position: relative;
     background-color: #fefefe;
     margin: auto;
-    margin-top: 35px;
+    margin-top: 15px;
     border: 1px solid #888;
     width: 40%;
-    height: 90%;
 }
 
 .header-form {
     font-size: 20px;
     font-weight: bold;
-    padding: 24px 0px 0px 24px;
-    margin-bottom: 24px;
+    padding: 16px 0px 0px 16px;
+    margin-bottom: 10px;
 }
 
 .close {
@@ -134,20 +141,18 @@ label {
     opacity: 0.4;
 }
 
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
-.form-main {}
-
 .form-button {
-    height: 60px;
+    height: 56px;
     width: 100%;
     padding: 0px;
     background-color: #e9ebee;
-   
 }
 
 .form-main {
@@ -156,8 +161,7 @@ label {
     padding-left: 24px;
     padding-right: 24px;
     width: calc(100% -48px);
-    height: calc(100% - 132px);
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
 }
 
 .form-employee .form-main .avatar {
@@ -168,9 +172,7 @@ label {
 }
 
 .form-employee .form-main .form-user {
-    height: 100%;
     width: calc(70%);
-   
 }
 
 .form-main .avatar .img-avatar {
@@ -191,20 +193,22 @@ label {
 .form-main .avatar .caption-avatar p {}
 
 .form-button {
-    
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
+
 .form-button button {
     margin-right: 24px;
     margin-left: 16px;
 }
+
 .form-button .btn-close {
     height: 40px;
     line-height: 40px;
     padding: 0 30px;
 }
+
 .form-button .btn-close:hover {
     background-color: #E5E5E5;
 }
