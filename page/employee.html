@@ -85,7 +85,7 @@
         <div class="header-content">
             <div class="title">Danh sách nhân viên</div>
             <div class="content-feature">
-                <button class="m-btn m-btn-default" id="add-employee">
+                <button class="m-btn m-btn-default" id="btn-add-employee">
                     <div class="m-btn-icon icon-add"></div>
                     <div class="btn-text">Thêm Nhân Viên</div>
                 </button>
@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class="filter-right">
-                <button class="m-btn-refresh m-second-button">
+                <button class="m-btn-refresh m-second-button" id="btn-refresh">
                 </button>
             </div>
         </div>
@@ -203,12 +203,12 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="MaNV">Mã nhân viên(<span style="color: brown;">*</span>)</label><br>
-                                <input type="text" name="MaNV" value="NV000999">
+                                <input type="text" name="MaNV" value="">
 
                             </div>
                             <div class="form-input">
                                 <label for="name">Họ và tên(<span style="color: brown;">*</span>)</label><br>
-                                <input type="text" value="Nguyễn Văn Mạnh">
+                                <input type="text" value="">
 
                             </div>
 
@@ -216,7 +216,7 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="dateofbirth">Ngày sinh(<span style="color: brown;">*</span>)</label><br>
-                                <input type="date" name="dateofbirth" id="" value="2000-08-06">
+                                <input type="date" name="dateofbirth" id="" value="">
 
                             </div>
                             <div class="form-input">
@@ -233,12 +233,12 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="personal-identity">Số CMTND/Căn cước(<span style="color: brown;">*</span>)</label><br>
-                                <input type="text" name="personal-identity" value="NV000999">
+                                <input type="text" name="personal-identity" value="">
 
                             </div>
                             <div class="form-input">
                                 <label for="date-identity">Ngày cấp</label><br>
-                                <input type="date" name="date-identity" id="" value="2011-04-11">
+                                <input type="date" name="date-identity" id="" value="">
 
                             </div>
 
@@ -246,7 +246,7 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="address-identity">Nơi cấp</label><br>
-                                <input type="text" name="address-identity" value="Tỉnh Hà Nội" id="address-identity">
+                                <input type="text" name="address-identity" value="" id="address-identity">
 
                             </div>
 
@@ -255,12 +255,12 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="email">Email(<span style="color: brown;">*</span>)</label><br>
-                                <input type="text" name="email" value="ngothetan2k@gmail.com">
+                                <input type="text" name="email" value="">
 
                             </div>
                             <div class="form-input">
                                 <label for="phonenumber">Số điện thoại(<span style="color: brown;">*</span>)</label><br>
-                                <input type="text" name="phonenumber" value="078973477">
+                                <input type="text" name="phonenumber" value="">
 
                             </div>
 
@@ -280,7 +280,7 @@
                             </div>
                             <div class="form-input">
                                 <label for="department">Phòng ban</label><br>
-                                <input type="text" name="department" value="Phòng nhân sự">
+                                <input type="text" name="department" value="">
 
                             </div>
 
@@ -288,13 +288,13 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="tax-code">Mã số thuế cá nhân</label><br>
-                                <input type="text" name="tax-code" value="03248713248">
+                                <input type="text" name="tax-code" value="">
 
                             </div>
                             <div class="form-input" id="form-salary">
                                 <div id="vnd" style="font-style: italic;opacity: 0.8;">(VNĐ)</div>
                                 <label for="salary">Mức lương cơ bản</label><br>
-                                <input type="text" id="salary" name="salary" value="28.000.000">
+                                <input type="text" id="salary" name="salary" value="">
 
                             </div>
 
@@ -302,7 +302,7 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="date-attend-comppany">Ngày gia nhập công ty</label><br>
-                                <input type="date" name="date-attend-comppany" id="" value="2011-04-11">
+                                <input type="date" name="date-attend-comppany" id="" value="">
 
                             </div>
                             <div class="form-input">
@@ -323,7 +323,7 @@
                 <div class="btn-close" id="employee-btn-close">Hủy</div>
                 <button class="m-btn m-btn-default">
                     <div class="m-btn-icon icon-add"></div>
-                    <div class="btn-text">Lưu</div>
+                    <div class="btn-text" id="btn-save">Lưu</div>
                 </button>
             </div>
 

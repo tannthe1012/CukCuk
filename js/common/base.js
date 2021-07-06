@@ -3,58 +3,104 @@ class BaseJS {
         this.getDataURL = null;
         this.setDataURL();
         this.loadData();
+        this.initEvents();
     }
     setDataURL() {}
+        /**
+         * Hàm xử lí các sự kiện click
+         */
+    initEvents() {
+        // sự kiện click khi nhấn vào thêm mới
+        $("#btn-add-employee").click(function() {
+                // Hiển thị layout modal Thông tin chi tiết nhân viên
+                $(".modal").show();
+            })
+            // ấn form chi tiết khi ấn dấu button hủy
+        $("#employee-btn-close").click(function() {
+                $(".modal").hide();
+            })
+            // ấn form chi tiết khi nhấn x
+        $("#btn-x-close").click(function() {
+                $(".modal").hide();
+            })
+            // Load lại dữ liệu khi nhấp vào button nạp
+        $("#btn-refresh").click(function() {
+                this.loadData();
+            }.bind(this))
+            // Lưu dữ diệu
+        $("#btn-save").click(function() {
+                alert("đây là cảnh báo của nút luu");
+            })
+            // Hiện thị thông tin chi tiết khi nhấp vào 1 bản ghi trên danh sách dữ liệu
+        $('table tbody').on('dblclick', 'tr', function() {
+                $(".modal").show();
+            })
+            // $('tr').dbclick(function() {
+            //     $(".modal").show();
+            // })
+    }
+
+    /**
+     * Hàm để load dữ liệu thông qua API
+     * CreatedBy: NTTAN (6/7/2021)
+     */
     loadData() {
         // Lấy thông tin các cột dữ liệu
-        var ths = $('table thead th');
+        try {
+            $('table tbody').empty(); // tránh việc có x2 x3 bản ghi sau mỗi lần refresh
+            var ths = $('table thead th');
 
-        var getDataURL = this.getDataURL;
+            var getDataURL = this.getDataURL;
 
-        // Lấy dữ liệu về tu api
-        // Lấy thông tin dũ liệu map tưởng ứng với các cột
-        $.ajax({
-            url: getDataURL,
-            method: "GET",
-            //Get : Lấy dữ liệu
+            // Lấy dữ liệu về tu api
+            // Lấy thông tin dũ liệu map tưởng ứng với các cột
+            $.ajax({
+                url: getDataURL,
+                method: "GET",
+                //Get : Lấy dữ liệu
 
-        }).done(function(res) {
-            $.each(res, function(index, obj) {
-                var tr = $(`<tr></tr>`);
-                $.each(ths, function(index, th) {
-                    var td = $(`<td></td>`);
-                    var fieldName = $(th).attr('fieldname');
-                    var value = obj[fieldName];
-                    if (value == null) {
-                        value = "null";
-                    }
-                    if (fieldName == "DateOfBirth") {
-                        td.addClass("text-align-center");
-                        value = formatDate(value);
-                    }
-                    if (fieldName == "Address") {
-                        td.addClass("white-space");
-                        td.attr('title', value);
-                    }
-                    if (fieldName == "salary") {
-                        value = formatMoney(value);
-                    }
-                    td.append(value);
-                    // var fieldName = $(th).attr('fieldname');
-                    // var value = obj[fieldName];
-                    // var td =$(`<td>`+value+`</td>`);
-                    $(tr).append(td);
-                });
-                debugger;
-                $('table tbody').append(tr);
+            }).done(function(res) {
+                $.each(res, function(index, obj) {
+                    var tr = $(`<tr></tr>`);
+                    $.each(ths, function(index, th) {
+                        var td = $(`<td></td>`);
+                        var fieldName = $(th).attr('fieldname');
+                        var value = obj[fieldName];
+                        switch (fieldName) {
+                            case "DateOfBirth":
+                                td.addClass("text-align-center");
+                                value = formatDate(value);
+                                break;
+                            case "Address":
+                                td.addClass("white-space");
+                                td.attr('title', value);
+                                break;
+                            case "Salary":
+                                value = formatMoney(value);
+                                break;
+
+                            default:
+                                break;
+                        }
+                        td.append(value);
+                        $(tr).append(td);
+                    });
+                    $('table tbody').append(tr);
+                })
+            }).fail(function(res) {
+
             })
-        }).fail(function(res) {
-
-        })
-
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
-
+/**
+ * Hàm định dạng hiện thị của ngày tháng năm dd/mm/yy
+ * Created: NTTan (6/7/2021)
+ * @param {any} date 
+ * @returns 
+ */
 function formatDate(date) {
     var date = new Date(date);
     var day = date.getDate();

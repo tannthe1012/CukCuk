@@ -1,99 +1,3 @@
-.form-row {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    max-height: 70px;
-}
-
-
-/* .form-input {
-    width: 45%;
-} */
-
-.form-input {
-    width: calc((100% - 10px) / 2);
-}
-
-.form-input input {
-    box-sizing: border-box;
-    width: 100%;
-    margin-bottom: 16px;
-    border: none;
-    border: 1px solid #E5E5E5;
-    height: 40px;
-    border-radius: 4px;
-    font-size: inherit;
-    font-family: inherit;
-    margin-top: 4px;
-}
-
-.content-form {
-    font-size: 15px;
-    position: relative;
-    margin-bottom: 16px;
-}
-
-.content-form:after {
-    content: '';
-    position: absolute;
-    left: 0px;
-    top: calc(100% + 5px);
-    width: 20%;
-    border-bottom: 3px solid #01B075;
-}
-
-label {
-    margin-bottom: 8px;
-}
-
-.form-user-top {
-    margin-bottom: 14px;
-}
-
-.modal select {
-    height: 40px;
-    padding-left: 10px;
-    font-size: inherit;
-    font-family: inherit;
-    border: none;
-    border: 1px solid #E5E5E5;
-    height: 40px;
-    width: 100%;
-    margin-top: 4px;
-}
-
-#address-identity {
-    width: calc(100% + 6px);
-}
-
-
-/* #salary::after {
-    content: '(VNĐ)';
-    font-style: italic;
-    position: absolute;
-    right: 5px;
-    top: 15px;
-    color: lemonchiffon;
-    font-size: 15px;
-    z-index: 99999;
-    background-color: lightgoldenrodyellow;
-} */
-
-#salary {
-    text-align: right;
-    padding-right: 53px;
-}
-
-#vnd {
-    position: absolute;
-    right: 16px;
-    top: 33px;
-}
-
-#form-salary {
-    position: relative;
-}
-
 .modal {
     display: none;
     /* Hidden by default */
@@ -114,23 +18,16 @@ label {
     /* Black w/ opacity */
 }
 
-.form-employee {
+.modal .form-employee {
     position: relative;
     background-color: #fefefe;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 30px;
     border: 1px solid #888;
     width: 40%;
 }
 
-.header-form {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 16px 0px 0px 16px;
-    margin-bottom: 10px;
-}
-
-.close {
+.modal .form-employee .close {
     position: absolute;
     background-position: center;
     background-image: url(../../content/icon/x.svg);
@@ -142,21 +39,21 @@ label {
     opacity: 0.4;
 }
 
-.close:hover,
-.close:focus {
+.modal .form-employee .close:hover,
+.modal .form-employee .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
-.form-button {
-    height: 56px;
-    width: 100%;
-    padding: 0px;
-    background-color: #e9ebee;
+.modal .form-employee .header-form {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 16px 0px 0px 16px;
+    margin-bottom: 10px;
 }
 
-.form-main {
+.modal .form-employee .form-main {
     display: flex;
     background-color: #ffffff;
     padding-left: 24px;
@@ -170,10 +67,6 @@ label {
     width: calc(30%);
     background-color: #ffffff;
     margin-right: 24px;
-}
-
-.form-employee .form-main .form-user {
-    width: calc(70%);
 }
 
 .form-main .avatar .img-avatar {
@@ -191,7 +84,94 @@ label {
     text-align: center;
 }
 
-.form-main .avatar .caption-avatar p {}
+.form-employee .form-main .form-user {
+    width: calc(70%);
+}
+
+.form-user-top {
+    margin-bottom: 14px;
+}
+
+.content-form {
+    font-size: 15px;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.content-form:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: calc(100% + 5px);
+    width: 20%;
+    border-bottom: 3px solid #01B075;
+}
+
+.form-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* max-height: 70px; */
+}
+
+.form-input {
+    width: calc((100% - 10px) / 2);
+}
+
+.form-input input {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 16px;
+    border: none;
+    border: 1px solid #E5E5E5;
+    height: 40px;
+    border-radius: 4px;
+    font-size: inherit;
+    font-family: inherit;
+    margin-top: 4px;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+.modal select {
+    height: 40px;
+    padding-left: 10px;
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    border: 1px solid #E5E5E5;
+    height: 40px;
+    width: 100%;
+    margin-top: 4px;
+}
+
+#address-identity {
+    width: calc(100% + 6px);
+}
+
+#salary {
+    text-align: right;
+    padding-right: 53px;
+}
+
+#vnd {
+    position: absolute;
+    right: 16px;
+    top: 33px;
+}
+
+#form-salary {
+    position: relative;
+}
+
+.form-button {
+    height: 56px;
+    width: 100%;
+    padding: 0px;
+    background-color: #e9ebee;
+}
 
 .form-button {
     display: flex;
