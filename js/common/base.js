@@ -30,29 +30,95 @@ class BaseJS {
         // Lưu dữ diệu
         $("#btn-save").click(function() {
             // validate dữ liệu
+            var inputValidates = $('input[type="email"],.input-required');
+            $.each(inputValidates, function(index, input) {
+                var value = $(input).val();
 
+                $(input).trigger('blur');
+            });
+            var inputNotValids = $('input[validate="false"]');
+            if (inputNotValids && inputNotValids.length > 0) {
+                alert("Dữ liệu không hợp lệ, vui long kiếm tra lại");
+                inputNotValids[0].focus();
+                return;
+            }
             // Thu thập thông tin dữ liệu
+            var employee = {
+                "EmployeeCode": $("#txtEmployeeCode").val(),
+                "FullName": $("#txtFullName").val(),
+                "DateOfBirth": $("#dtDateofBirth").val(),
+                "GenderName": $("#Gender").text(),
+                "PhoneNumber": $("#txtPhoneNumber").val(),
+                "Email": $("#txtEmail").val(),
+                "Address": $("#txtEmployeeCode").val(),
+                "IdentityNumber": $('#txtIdentityNumber').val(),
+                "Salary": $("#salary").val(),
+                "PositionName": $("#txtPositionName").val(),
 
+            };
+            console.log(employee);
             // Gọi service tương ứng lưu dữ liệu
+            // $.ajax({
+            //     url: 'http://cukcuk.manhnv.net/v1/Employees',
+            //     method: 'POST',
+            //     data: JSON.stringify(employee),
+            //     contentType: 'application/json'
 
+            // }).done(function(res) {
+            //     console.log("thanh cong");
+            // }).fail(function(res) {
+
+            // });
             // Sau khi lưu thành công thì 
             // đưa ra thông báo
+            alert("đã lưu thành công");
             // ẩn form chi tiết 
             // load lại dữ liệu
         });
         // Hiện thị thông tin chi tiết khi nhấp vào 1 bản ghi trên danh sách dữ liệu
-        $('table tbody').on('dblclick', 'tr', function() {
-            $(".modal").show();
-        });
+        // $('table tbody').on('dblclick', 'tr', function() {
+        //     $(".modal").show();
+        //     var valueEmployeeCode = $(this).
+        //     $("#txtEmployeeCode").value()
+        // });
+        /**
+         * Validate bắt buộc nhập
+         * Created: NTTAN (7/7/2021)
+         */
         $('.input-required').blur(function() {
             // Kiem tra dữ liệu đã nhập, nếu bỏ trông thì cảnh báo
             var value = $(this).val();
             if (!value) {
                 $(this).addClass("border-red");
+                $(this).attr('title', 'Trường này không được phép bỏ trống');
+                $(this).attr("validate", false);
             } else {
                 $(this).removeClass("border-red");
+                $(this).attr("validate", true);
             }
+
         });
+        /**
+         * Validate email
+         * Created: NTTAN (7/7/2021)
+         */
+        $('input[type="email"]').blur(function() {
+            var email = $(this).val();
+            var emailReg = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            console.log(emailReg.test(email));
+            // return emailReg.test(email);
+            if (!emailReg.test(email)) {
+                $(this).addClass("border-red");
+                $(this).attr('title', 'Email không đúng định dạng');
+                $(this).attr("validate", false);
+            } else {
+                $(this).removeClass("border-red");
+                $(this).attr("validate", true);
+            }
+
+        })
+
+
     }
 
     /**
@@ -99,7 +165,60 @@ class BaseJS {
                         }
                         td.append(value);
                         $(tr).append(td);
+
+
                     });
+                    $(tr).click(function(event) {
+                        $(".modal").show();
+                        var genderName = obj.GenderName;
+                        switch (genderName) {
+                            case "Nam":
+                                break;
+                            case "Nữ":
+                                break;
+                            case "Không xác định":
+                                break;
+                            default:
+                                genderName = "";
+                                break;
+                        }
+                        var workstatus = obj.WorkStatus;
+                        switch (workstatus) {
+                            case 0:
+                                workstatus = "Đang làm việc";
+                                break;
+                            case 1:
+                                workstatus = "Đang thử việc";
+                                break;
+                            case 2:
+                                workstatus = "Đã Nghỉ việc";
+                                break;
+                            case 3:
+                                workstatus = "Khác ...";
+                                break;
+                            default:
+                                workstatus = "Không Xác Định";
+                                break;
+                        }
+                        $("#txtEmployeeCode").val(obj.EmployeeCode);
+                        $("#txtFullName").val(obj.FullName);
+                        $("#dtDateofBirth").val(formatDateInput(obj.DateOfBirth));
+                        $("#Gender").text(genderName);
+                        $("#txtIdentityNumber").val(obj.IdentityNumber);
+                        $("#IdentityDate").val(formatDateInput(obj.IdentityDate));
+                        $("#IdentityPlace").val(obj.IdentityPlace);
+                        $("#txtEmail").val(obj.Email);
+                        $("#txtPhoneNumber").val(obj.PhoneNumber);
+                        $("#txtPositionName").val(obj.txtPositionName);
+                        $("#txtDepartmentName").val(obj.DepartmentName);
+                        $("#txtPersonalTaxCode").val(obj.PersonalTaxCode);
+                        $("#salary").val(formatMoney(obj.Salary));
+                        $("#JoinDate").val(formatDateInput(obj.JoinDate));
+                        $("#WorkStatus").text(workstatus);
+                        console.log($('#Gender').text());
+
+                    })
+
                     $('table tbody').append(tr);
                 })
             }).fail(function(res) {
@@ -124,6 +243,16 @@ function formatDate(date) {
     day = day > 9 ? day : `0${day}`;
     month = month > 9 ? month : `0${month}`;
     return day + '/' + month + '/' + year;
+}
+
+function formatDateInput(date) {
+    var date = new Date(date);
+    var day = date.getDate();
+    month = date.getMonth() + 1;
+    year = date.getFullYear();
+    day = day > 9 ? day : `0${day}`;
+    month = month > 9 ? month : `0${month}`;
+    return year + '-' + month + '-' + day;
 }
 /**
  * Hàm định dạng hiển thị tiền tệ

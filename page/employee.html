@@ -220,12 +220,18 @@
 
                             </div>
                             <div class="form-input">
-                                <label for="gender">Giới tính(<span style="color: brown;">*</span>)</label><br>
-                                <select name="gender" id=""> 
-                                        <option value="">Nam</option>
-                                        <option value="">Nữ</option>
-                                        <option value="">Không Xác Định</option>
-                                    </select>
+                                <label for="gender">Giới tính(<span style="color: brown;" >*</span>)</label><br>
+                                <div class="dropdown">
+                                    <div class="dropdown-show" id="dropdown-show">
+                                        <span id="Gender"></span>
+                                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                                    </div>
+                                    <div class="dropdown-hide">
+                                        <div class="dropdown-select"><i class="fas fa-check"></i>Nam</div>
+                                        <div class="dropdown-select"><i class="fas fa-check"></i>Nữ</div>
+                                        <div class="dropdown-select"><i class="fas fa-check"></i>Không xác định</div>
+                                    </div>
+                                </div>
 
                             </div>
 
@@ -233,12 +239,12 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="personal-identity">Số CMTND/Căn cước(<span style="color: brown;">*</span>)</label><br>
-                                <input type="text" name="personal-identity" value="" class="input-required">
+                                <input type="text" name="personal-identity" value="" class="input-required" id="txtIdentityNumber">
 
                             </div>
                             <div class="form-input">
                                 <label for="date-identity">Ngày cấp</label><br>
-                                <input type="date" name="date-identity" id="" value="">
+                                <input type="date" name="date-identity" id="IdentityDate" value="">
 
                             </div>
 
@@ -246,7 +252,7 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="address-identity">Nơi cấp</label><br>
-                                <input type="text" name="address-identity" value="" id="address-identity">
+                                <input type="text" name="address-identity" value="" id="IdentityPlace">
 
                             </div>
 
@@ -255,12 +261,12 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="email">Email(<span style="color: brown;">*</span>)</label><br>
-                                <input type="text" name="email" value="" class="input-required">
+                                <input type="email" name="email" value="" class="input-required" id="txtEmail">
 
                             </div>
                             <div class="form-input">
                                 <label for="phonenumber">Số điện thoại(<span style="color: brown;">*</span>)</label><br>
-                                <input type="text" name="phonenumber" value="" class="input-required">
+                                <input type="text" name="phonenumber" value="" class="input-required" id="txtPhoneNumber">
 
                             </div>
 
@@ -271,7 +277,7 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="position">Vị trí</label><br>
-                                <select name="position" id=""> 
+                                <select name="position" id="txtPositionName"> 
                                         <option value="">Giám đốc</option>
                                         <option value="">Nhân Viên</option>
                                         <option value="">Thực tập sinh</option>
@@ -280,7 +286,7 @@
                             </div>
                             <div class="form-input">
                                 <label for="department">Phòng ban</label><br>
-                                <input type="text" name="department" value="">
+                                <input type="text" name="department" value="" id="txtDepartmentName">
 
                             </div>
 
@@ -288,7 +294,7 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="tax-code">Mã số thuế cá nhân</label><br>
-                                <input type="text" name="tax-code" value="">
+                                <input type="text" name="tax-code" value="" id="txtPersonalTaxCode">
 
                             </div>
                             <div class="form-input" id="form-salary">
@@ -302,16 +308,23 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="date-attend-comppany">Ngày gia nhập công ty</label><br>
-                                <input type="date" name="date-attend-comppany" id="" value="">
+                                <input type="date" name="date-attend-comppany" id="JoinDate" value="">
 
                             </div>
                             <div class="form-input">
                                 <label for="work-status">Tình trạng công việc</label><br>
-                                <select name="work-status" id=""> 
-                                        <option value="">Đang làm việc</option>
-                                        <option value="">Đã nghỉ việc</option>
-                                        <option value="">Đang nghỉ việc</option>
-                                    </select>
+                                <div class="dropdown">
+                                    <div class="dropdown-show" id="dropdown-show">
+                                        <span id="WorkStatus"></span>
+                                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                                    </div>
+                                    <div class="dropdown-hide">
+                                        <div class="dropdown-select"><i class="fas fa-check"></i>Đang làm việc</div>
+                                        <div class="dropdown-select"><i class="fas fa-check"></i>Đang thử việc</div>
+                                        <div class="dropdown-select"><i class="fas fa-check"></i>Đã Nghỉ việc</div>
+                                        <div class="dropdown-select"><i class="fas fa-check"></i>Khác ...</div>
+                                    </div>
+                                </div>
 
                             </div>
 
@@ -321,9 +334,9 @@
             </div>
             <div class="form-button">
                 <div class="btn-close" id="employee-btn-close">Hủy</div>
-                <button class="m-btn m-btn-default">
+                <button class="m-btn m-btn-default" id="btn-save">
                     <div class="m-btn-icon icon-add"></div>
-                    <div class="btn-text" id="btn-save">Lưu</div>
+                    <div class="btn-text">Lưu</div>
                 </button>
             </div>
 

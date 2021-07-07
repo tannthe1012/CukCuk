@@ -73,3 +73,7 @@
 }
 
 .navbar .navbar-content .nav-item .nav-item-content {}
+
+.nav-item-active {
+    background-color: #019160 !important;
+}

@@ -201,3 +201,39 @@ label {
 input.border-red {
     border: 1px solid #FF4747;
 }
+
+.modal .dropdown {
+    margin-top: 4px;
+    position: relative;
+    width: calc(100% - 2px);
+    height: 40px;
+    /* border: 1px solid #bbbbbb; */
+    border-radius: 4px;
+}
+
+.modal .dropdown .dropdown-show {
+    width: 100%;
+    padding: 0px;
+    height: 38px;
+    border: 1px solid #e5e5e5;
+}
+
+.modal .dropdown .dropdown-hide {
+    width: 100%;
+}
+
+.modal .dropdown .dropdown-show span {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.modal .dropdown .dropdown-show i {
+    display: flex;
+    align-items: center;
+}
+
+.modal .dropdown-select {
+    width: 100%;
+    padding: 12px 0px;
+}
