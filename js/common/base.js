@@ -1,149 +1,46 @@
+
+var employeeList = [];
+var updateData = false;
+// function Employee(employeeId, em)
 class BaseJS {
+
+
     constructor() {
-        this.getDataURL = null;
-        this.setDataURL();
-        this.loadData();
+        this.host = "http://cukcuk.manhnv.net";
+        this.apiRouter = null;
+        this.setApiRouter();
         this.initEvents();
+        this.loadData();
+        
+        
     }
-    setDataURL() {}
-        /**
-         * Hàm xử lí các sự kiện click
-         */
-    initEvents() {
-        // sự kiện click khi nhấn vào thêm mới
-        $("#btn-add-employee").click(function() {
-            // Hiển thị layout modal Thông tin chi tiết nhân viên
-            $(".modal").show();
-        });
-        // ấn form chi tiết khi ấn dấu button hủy
-        $("#employee-btn-close").click(function() {
-            $(".modal").hide();
-        });
-        // ấn form chi tiết khi nhấn x
-        $("#btn-x-close").click(function() {
-            $(".modal").hide();
-        });
-        // Load lại dữ liệu khi nhấp vào button nạp
-        $("#btn-refresh").click(function() {
-            this.loadData();
-        }.bind(this));
-        // Lưu dữ diệu
-        $("#btn-save").click(function() {
-            // validate dữ liệu
-            var inputValidates = $('input[type="email"],.input-required');
-            $.each(inputValidates, function(index, input) {
-                var value = $(input).val();
-
-                $(input).trigger('blur');
-            });
-            var inputNotValids = $('input[validate="false"]');
-            if (inputNotValids && inputNotValids.length > 0) {
-                alert("Dữ liệu không hợp lệ, vui long kiếm tra lại");
-                inputNotValids[0].focus();
-                return;
-            }
-            // Thu thập thông tin dữ liệu
-            var employee = {
-                "EmployeeCode": $("#txtEmployeeCode").val(),
-                "FullName": $("#txtFullName").val(),
-                "DateOfBirth": $("#dtDateofBirth").val(),
-                "GenderName": $("#Gender").text(),
-                "PhoneNumber": $("#txtPhoneNumber").val(),
-                "Email": $("#txtEmail").val(),
-                "Address": $("#txtEmployeeCode").val(),
-                "IdentityNumber": $('#txtIdentityNumber').val(),
-                "Salary": $("#salary").val(),
-                "PositionName": $("#txtPositionName").val(),
-
-            };
-            console.log(employee);
-            // Gọi service tương ứng lưu dữ liệu
-            // $.ajax({
-            //     url: 'http://cukcuk.manhnv.net/v1/Employees',
-            //     method: 'POST',
-            //     data: JSON.stringify(employee),
-            //     contentType: 'application/json'
-
-            // }).done(function(res) {
-            //     console.log("thanh cong");
-            // }).fail(function(res) {
-
-            // });
-            // Sau khi lưu thành công thì 
-            // đưa ra thông báo
-            alert("đã lưu thành công");
-            // ẩn form chi tiết 
-            // load lại dữ liệu
-        });
-        // Hiện thị thông tin chi tiết khi nhấp vào 1 bản ghi trên danh sách dữ liệu
-        // $('table tbody').on('dblclick', 'tr', function() {
-        //     $(".modal").show();
-        //     var valueEmployeeCode = $(this).
-        //     $("#txtEmployeeCode").value()
-        // });
-        /**
-         * Validate bắt buộc nhập
-         * Created: NTTAN (7/7/2021)
-         */
-        $('.input-required').blur(function() {
-            // Kiem tra dữ liệu đã nhập, nếu bỏ trông thì cảnh báo
-            var value = $(this).val();
-            if (!value) {
-                $(this).addClass("border-red");
-                $(this).attr('title', 'Trường này không được phép bỏ trống');
-                $(this).attr("validate", false);
-            } else {
-                $(this).removeClass("border-red");
-                $(this).attr("validate", true);
-            }
-
-        });
-        /**
-         * Validate email
-         * Created: NTTAN (7/7/2021)
-         */
-        $('input[type="email"]').blur(function() {
-            var email = $(this).val();
-            var emailReg = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            console.log(emailReg.test(email));
-            // return emailReg.test(email);
-            if (!emailReg.test(email)) {
-                $(this).addClass("border-red");
-                $(this).attr('title', 'Email không đúng định dạng');
-                $(this).attr("validate", false);
-            } else {
-                $(this).removeClass("border-red");
-                $(this).attr("validate", true);
-            }
-
-        })
-
-
-    }
+    setApiRouter() {};
+    setDataURL() { };
+    initEvents() { };
 
     /**
      * Hàm để load dữ liệu thông qua API
      * CreatedBy: NTTAN (6/7/2021)
      */
     loadData() {
+        var me = this;
         // Lấy thông tin các cột dữ liệu
         try {
             $('table tbody').empty(); // tránh việc có x2 x3 bản ghi sau mỗi lần refresh
             var ths = $('table thead th');
 
-            var getDataURL = this.getDataURL;
-
+            var url = me.host + me.apiRouter;
             // Lấy dữ liệu về tu api
             // Lấy thông tin dũ liệu map tưởng ứng với các cột
             $.ajax({
-                url: getDataURL,
+                url: url,
                 method: "GET",
                 //Get : Lấy dữ liệu
 
-            }).done(function(res) {
-                $.each(res, function(index, obj) {
+            }).done(function (res) {
+                $.each(res, function (index, obj) {
                     var tr = $(`<tr></tr>`);
-                    $.each(ths, function(index, th) {
+                    $.each(ths, function (index, th) {
                         var td = $(`<td></td>`);
                         var fieldName = $(th).attr('fieldname');
                         var value = obj[fieldName];
@@ -168,7 +65,9 @@ class BaseJS {
 
 
                     });
-                    $(tr).click(function(event) {
+                    // xử lý sự kiện khi dblclick vào các thẻ tr trong bảng
+                    $(tr).dblclick(function (event) {
+                        updateData = true; // cho biết click btn-save là api PUT
                         $(".modal").show();
                         var genderName = obj.GenderName;
                         switch (genderName) {
@@ -215,13 +114,16 @@ class BaseJS {
                         $("#salary").val(formatMoney(obj.Salary));
                         $("#JoinDate").val(formatDateInput(obj.JoinDate));
                         $("#WorkStatus").text(workstatus);
-                        console.log($('#Gender').text());
 
                     })
-
+                    employeeList.push(obj);
+                    // console.log(obj.DepartmentId + ':' + obj.DepartmentName);
                     $('table tbody').append(tr);
                 })
-            }).fail(function(res) {
+
+
+
+            }).fail(function (res) {
 
             })
         } catch (error) {
@@ -244,7 +146,12 @@ function formatDate(date) {
     month = month > 9 ? month : `0${month}`;
     return day + '/' + month + '/' + year;
 }
-
+/**
+ * hàm format lại date từ dd/mm/yyyy -> yyyy-mm-dd
+ * Created: NTTan (8/7/2021)
+ * @param {date} date 
+ * @returns 
+ */
 function formatDateInput(date) {
     var date = new Date(date);
     var day = date.getDate();
@@ -264,4 +171,67 @@ function formatMoney(money) {
         return "0"
     else
         return money.toLocaleString("it-IT");
+}
+/**
+ * Hàm xác định lại gender từ gendenNam trong form chi tiét
+ * @param {genderName} genderName 
+ * @returns 
+ * Created: NTTan(8/7/2021)
+ */
+function formatGenderNamePost(genderName) {
+    if (genderName == "Nam") {
+        return 1;
+    } else if (genderName == "Nữ") {
+        return 0;
+    } else if (genderName = "Không xác định") {
+        return 2;
+    } else {
+        return 3;
+    }
+
+}
+/**
+ * Hàm clear data trong các input khi modal của thêm nhân viên xuất hiện
+ */
+function clearDataForm() {
+    $("#txtEmployeeCode").val("");
+    $("#txtFullName").val("");
+    $("#dtDateofBirth").val("");
+    $("#Gender").text("");
+    $("#txtIdentityNumber").val("");
+    $("#IdentityDate").val("");
+    $("#IdentityPlace").val("");
+    $("#txtEmail").val("");
+    $("#txtPhoneNumber").val("");
+    $("#txtPositionName").val("");
+    $("#txtDepartmentName").val("");
+    $("#txtPersonalTaxCode").val("");
+    $("#salary").val("");
+    $("#JoinDate").val("");
+    $("#WorkStatus").text("");
+}
+/**
+ * Hàm convert từ Name sang IDdepartment
+ * @param {*} nameDepartment 
+ * @returns 
+ */
+function formatDepartmentId(nameDepartment) {
+    var departmentId;
+    switch (nameDepartment) {
+        case "Phòng Nhân sự":
+            departmentId = "469b3ece-744a-45d5-957d-e8c757976496";
+            break;
+        case "Phòng Công nghệ":
+            departmentId = "4e272fc4-7875-78d6-7d32-6a1673ffca7c";
+            break;
+        case "Phòng đào tạo":
+            departmentId = "17120d02-6ab5-3e43-18cb-66948daf6128";
+            break;
+        case "Phòng Marketting":
+            departmentId = "142cb08f-7c31-21fa-8e90-67245e8b283e";
+            break;
+        default:
+            break;
+    }
+    return departmentId;
 }

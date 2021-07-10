@@ -119,3 +119,18 @@
     padding-left: 16px;
     padding-right: 16px;
 }
+.context-delete-employee {
+    max-width: 70px;
+    background-color:#bbbbbb;
+    height: 100%;
+    z-index: 100;
+    border-radius: 4px;
+    transform-origin:top left;
+    height: 100%;
+    padding: 6px 10px;
+    border: none;
+}
+.context-delete-employee:hover {
+    background-color: rgb(214, 69, 12);
+    color: #ffffff;
+}

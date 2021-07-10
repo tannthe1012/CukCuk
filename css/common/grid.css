@@ -24,7 +24,6 @@ table {
     empty-cells: initial;
     empty-cells: unset;
 }
-
 table tbody tr:nth-child(even) {
     background-color: #e9ebee;
 }
