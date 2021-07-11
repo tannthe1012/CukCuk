@@ -36,6 +36,11 @@ class EmployeeJS extends BaseJS {
         });
         // ấn form chi tiết khi nhấn x
         $("#btn-x-close").click(function () {
+            // Hiện ra Popup Đóng form\
+            // $("#modal-popup").show();
+            // $(".popup-title").text("Đóng form thông tin chung");
+            // $(".popup-content-icon i").css("color","#b3bb41");
+            // $("span").val("Đóng form thông tin chung");
             $(".modal").hide();
         });
         // Load lại dữ liệu khi nhấp vào button nạp
@@ -53,8 +58,8 @@ class EmployeeJS extends BaseJS {
             me.recordID = $(tr).attr('recordId');
             // thêm background vào tr đang được focus
             $(tr).addClass('background-color-focus');
-            event.preventDefault();
             // $(this).find(td).addClass('background-color-focus');
+            event.preventDefault();
             let contextMenu = $('#contextmenu');
             const { clientX: mouseX, clientY: mouseY } = event;
             $(contextMenu).css('top', `${mouseY}px`);
@@ -107,24 +112,44 @@ class EmployeeJS extends BaseJS {
             });
         })
 
-        // Xử lí sự kiện nút Xóa
+        // Xử lí sự kiện nút Xóa trong contextmenu
         $("#contextmenu-delete").on("click", function() {
+            // ẩn đi contextmenu
             $('#contextmenu').css('display', `none`);
             // Hiện Popup kiểm tra xem có muốn xóa hay không
-            // Thực hiện xóa
-            $.ajax({
-                url: me.host + me.apiRouter + '/' + me.recordID,
-                method: "DELETE",
-            }).done(function (obj) {
-               console.log("đa xóa thành công bản ghi");
-            }).fail(function (obj) {
-                console.log("That bai khi lay doi tuong");
-            });
-            alert("Đã xóa thành công bản ghi");
-            me.loadData();
-            // me.loadData();
-
+            $('#modal-popup').show();
+        });
+        // sự kiện Confirm trong các popup
+        $('.popup-btn-confirm').on("click", function() {
+            //ân đi popup
+            $('#modal-popup').hide();
+            // Gọi API xóa
+            try {
+                $.ajax({
+                    url: me.host + me.apiRouter + '/' + me.recordID,
+                    method: "DELETE",
+                }).done(function (obj) {
+                   console.log("đa xóa thành công bản ghi");
+                   me.loadData();
+                }).fail(function (obj) {
+                    console.log("That bai khi lay doi tuong");
+                    // me.loadData();
+                });
+                // me.loadData();
+            } catch (error) {
+                console.log(error);
+            }
+        });
+        // Sự kiện nhấn nút Hủy trong popup
+        $('.popup-btn-close').on("click", function() {
+            $("#modal-popup").hide();
         })
+        // Sự kiện nhấn nút X
+        $('.popup-btn-x').on("click", function() {
+            $("#modal-popup").hide();
+        })
+       
+
 
 
 
@@ -206,7 +231,7 @@ class EmployeeJS extends BaseJS {
                         value = formatGenderNamePost($(this).text());
                         employee["Gender"] = value;
                         break;
-                    case "salary":
+                    case "Salary":
                         $(this).val().replaceAll(".", "");
                         $(this).val().replaceAll(",", "");
                         value = $(this).val();
