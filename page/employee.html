@@ -14,7 +14,7 @@
     <link href="../css/common/grid.css" rel="stylesheet" />
     <link href="../css/common/input.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/common/colab.css">
-    <!-- <link rel="stylesheet" href="../css/page/formemployee.css"> -->
+    <link rel="stylesheet" href="../css/common/contextmenu.css">
     <link rel="stylesheet" href="../css/common/form.css">
     <link rel="stylesheet" href="../css/common/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -183,7 +183,10 @@
             <div class="paging-contentright"><span style="font-weight: 1000;">18</span> nhân viên/trang</div>
         </div>
     </div>
-    
+    <div id="contextmenu">
+        <div id="contextmenu-update">Sửa</div>
+        <div id="contextmenu-delete">Xóa</div>      
+    </div>
     <div class="modal" id="modal">
         <div class="form-employee">
 
@@ -318,7 +321,7 @@
                             <div class="form-input" id="form-salary">
                                 <div id="vnd" style="font-style: italic;opacity: 0.8;">(VNĐ)</div>
                                 <label for="salary">Mức lương cơ bản</label><br>
-                                <input type="text" id="salary" name="salary" value="" fieldName="salary" oninput="myFunction()">
+                                <input type="text" id="salary" name="salary" value="" fieldName="Salary" >
 
                             </div>
 

@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    font-family: GoogleSans-Regular;
+    font-size: 13px;
+    height: 100vh;
+}
+@font-face {
+    font-family: 'GoogleSans-Bold';
+    src: url('../../content/font/GoogleSans-Bold.otf') format('opentype');
+}
+.modal {
+    /* display: none; */
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    /* Location of the box */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+}
+
+.popup {
+    border: 1px solid #BBBBBB;
+    align-items: center;
+    
+    position: relative;
+    background-color: #ffffff;
+    margin:auto;
+    margin-top: 20%;
+    border: 1px solid #888;
+    width: 400px;
+}
+.popup .popup-btn-x {
+    position: absolute;
+    background-position: center;
+    background-image: url(../../content/icon/x.svg);
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    top: 0px;
+    right: 0px;
+    opacity: 0.4;
+}
+.popup .popup-content {
+    display: flex;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.popup .popup-title {
+    font-family: GoogleSans-Bold;
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 24px 0px 0px 24px;
+    margin-bottom: 24px;
+}
+.popup-content-icon {
+    display: flex;
+    align-items: center;
+    background-color: #E9EBEE;
+    width: 30px;
+    justify-content: center;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.popup-content-icon i {
+    height: fit-content;
+    font-size: 12px;
+    color: red;
+}

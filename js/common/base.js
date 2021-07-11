@@ -11,10 +11,10 @@ class BaseJS {
         this.setApiRouter();
         this.initEvents();
         this.loadData();
-        
-        
+
+
     }
-    setApiRouter() {};
+    setApiRouter() { };
     setDataURL() { };
     initEvents() { };
 
@@ -63,61 +63,10 @@ class BaseJS {
                         td.append(value);
                         $(tr).append(td);
 
-
                     });
-                    // xử lý sự kiện khi dblclick vào các thẻ tr trong bảng
-                    $(tr).dblclick(function (event) {
-                        updateData = true; // cho biết click btn-save là api PUT
-                        $(".modal").show();
-                        var genderName = obj.GenderName;
-                        switch (genderName) {
-                            case "Nam":
-                                break;
-                            case "Nữ":
-                                break;
-                            case "Không xác định":
-                                break;
-                            default:
-                                genderName = "";
-                                break;
-                        }
-                        var workstatus = obj.WorkStatus;
-                        switch (workstatus) {
-                            case 0:
-                                workstatus = "Đang làm việc";
-                                break;
-                            case 1:
-                                workstatus = "Đang thử việc";
-                                break;
-                            case 2:
-                                workstatus = "Đã Nghỉ việc";
-                                break;
-                            case 3:
-                                workstatus = "Khác ...";
-                                break;
-                            default:
-                                workstatus = "Không Xác Định";
-                                break;
-                        }
-                        $("#txtEmployeeCode").val(obj.EmployeeCode);
-                        $("#txtFullName").val(obj.FullName);
-                        $("#dtDateofBirth").val(formatDateInput(obj.DateOfBirth));
-                        $("#Gender").text(genderName);
-                        $("#txtIdentityNumber").val(obj.IdentityNumber);
-                        $("#IdentityDate").val(formatDateInput(obj.IdentityDate));
-                        $("#IdentityPlace").val(obj.IdentityPlace);
-                        $("#txtEmail").val(obj.Email);
-                        $("#txtPhoneNumber").val(obj.PhoneNumber);
-                        $("#txtPositionName").val(obj.txtPositionName);
-                        $("#txtDepartmentName").val(obj.DepartmentName);
-                        $("#txtPersonalTaxCode").val(obj.PersonalTaxCode);
-                        $("#salary").val(formatMoney(obj.Salary));
-                        $("#JoinDate").val(formatDateInput(obj.JoinDate));
-                        $("#WorkStatus").text(workstatus);
-
-                    })
+                    // Thêm attr cho mỗi thẻ tr để có thể tìm kiếm theo id
+                    $(tr).attr('recordId', obj.EmployeeId);
                     employeeList.push(obj);
-                    // console.log(obj.DepartmentId + ':' + obj.DepartmentName);
                     $('table tbody').append(tr);
                 })
 
@@ -235,3 +184,17 @@ function formatDepartmentId(nameDepartment) {
     }
     return departmentId;
 }
+/**
+ * Hàm để convert Trạng thái làm việc từ dạng ID sang Name 
+ * @param {workstatus recieve API} workstatusID 
+ * @returns 
+ */
+function convertWorkStatus(workstatusID) {
+    let workStatusID = workstatusID;
+    let status = workstatus.find(function(status) {
+        return status.workStatus == workStatusID;
+    });
+    return status.workStatusName;
+}
+
+

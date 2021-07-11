@@ -237,3 +237,6 @@ input.border-red {
     width: 100%;
     padding: 12px 0px;
 }
+.background-color-focus {
+    background-color: #09c969 ;
+}

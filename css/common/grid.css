@@ -29,7 +29,7 @@ table tbody tr:nth-child(even) {
 }
 
 table tr:hover {
-    background-color: #09c969 !important;
+    background-color: #2da77c !important;
 }
 
 ::-webkit-scrollbar {
