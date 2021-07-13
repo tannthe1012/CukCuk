@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url('../../content/font/GoogleSans-Regular.otf') format('opentype');
+}
+
+.cbx {
+    position: relative;
+    height: 38px;
+    width: 400px;
+    
+}
+.cbx-show {
+    height: 38px;
+    background-color: #ffffff;
+    display: flex;
+    border-radius: 4px;
+    box-shadow: #000000;
+    border: 1px solid #bbbbbb;
+    margin-bottom: 5px;
+    width: 50%;
+}
+
+.cbx-show input {
+    flex: 1;
+    min-width: 100px;
+    padding-left: 10px;
+    border: none;
+    font-family: GoogleSans-Regular;
+}
+
+.cbx-show input:focus-visible {
+    outline: none;
+}
+.cbx-select {
+    display: none;
+    height: 16px;
+    width: 180px;
+    background-color: #ffffff;
+    padding: 12px 10px;
+    color: #000000;
+}
+
+
+.cbx-select i {
+    font-size: 16px;
+    margin-right: 10px;
+    opacity: 0;
+}
+
+.cbx-select:hover {
+    background-color: #e9ebee;
+}
+
+
+
+.cbx-hide {
+    position: absolute;
+    width: 50%;
+    box-shadow: 0px 0px 5px 0px #222222;
+    z-index: 5;
+}
+
+.cbx-show i {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    border-left: 1px solid #bbbbbb;
+    opacity: 0.5;
+    padding: 0px 12px;
+}
+
+.cbx {
+    user-select: none;
+}
+
+.cbx .active {
+    background-color: #01B075;
+    color: #ffffff;
+}
+
+.cbx-icon-active {
+    transform: rotate(180deg);
+}
+
+.cbx-selector-active {
+    border-color: #019160;
+}
+.cbx-select-focus {
+    background-color: #E9EBEE;
+}
