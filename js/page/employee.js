@@ -53,6 +53,7 @@ class EmployeeJS extends BaseJS {
         })
         // Xử lí sự kiện nút Sửa
         $('#contextmenu-update').on("click", function() {
+            bindDataCombobox(me);
             $('#contextmenu').css('display', `none`);
             statusForm = "UPDATE";
             // updateData = true; // cho biết click btn-save là api PUT
@@ -81,6 +82,9 @@ class EmployeeJS extends BaseJS {
         // hiện form khi double click vào các thẻ tr
         $("table tbody").on("dblclick", "tr", function () {
             statusForm = "UPDATE";
+            // load data của các combobox;
+            me.bindDataCombobox(me);
+            
             $(".modal").show();
             // Lấy id của đối tượng được chứa trong thẻ tr
             var recordID = $(this).attr('recordId');
@@ -103,6 +107,9 @@ class EmployeeJS extends BaseJS {
         $('.input-required').blur(me.validateInput);
         // validate định dạng email
         $('input[type="email"]').blur(me.validateEmail);
+        // validate bắt buộc với các combobox
+        // $(".cbx-show input").blur(me.validateCombobox);
+        
         /**
         * Format lương ngay cả khi đang nhập liệu trong form
         * Created By : NTTan (8/7/2021)
@@ -115,13 +122,16 @@ class EmployeeJS extends BaseJS {
             value = BigInt(value).toLocaleString("it-IT");
             $("#salary").val(value);
         });
-
+        
     };
     /**
      * Hàm xử lí sự kiện click vào nút Thêm nhân viên
      * Created By: NTTan (6/7/2021)
      */
     btnAddOnClick() {
+        var me = this;
+        // var me = $(this);
+        me.bindDataCombobox(me);
         // Hiển thị layout modal Thông tin chi tiết nhân viên
         $(".modal").show();
         // clear hết data trong form trước khi thêm mới
@@ -136,7 +146,6 @@ class EmployeeJS extends BaseJS {
         var inputs = $('input[fieldName], span[fieldName]');
         $.each(inputs, function (index, input) {
             var fieldName = $(this).attr('fieldName');
-            console.log($(this));
             var value = obj[fieldName];
             switch (fieldName) {
                 case "Salary":
@@ -182,11 +191,11 @@ class EmployeeJS extends BaseJS {
         var me = this;
         me.loadData();
     }
-     /**
+    /**
      * Hàm để hiện Popup "Xóa bản ghi"
      * Created By: NTTan (10/7/2021)
      */
-      btnDelete() {
+    btnDelete() {
         // ẩn đi contextmenu
         $('#contextmenu').css('display', `none`);
         // Hiện Popup kiểm tra xem có muốn xóa hay không
@@ -209,7 +218,6 @@ class EmployeeJS extends BaseJS {
         // Gọi API xóa
         console.log(statusConfirm == "DELETE");
         if (statusConfirm == "DELETE") {
-            console.log("da vao ben trong");
             try {
                 $.ajax({
                     url: me.host + me.apiRouter + '/' + me.recordID,
@@ -227,6 +235,9 @@ class EmployeeJS extends BaseJS {
         } else {
             $('table tbody').find('tr').removeClass('background-color-focus');
             $("#modal").hide();
+            $(".form-input input").removeClass("border-red");
+            $(".form-input .cbx-show").removeClass("border-red-combobox");
+            $(".form-input .cbx-show").removeClass("border-focus");
         }
     }
     /**
@@ -236,13 +247,42 @@ class EmployeeJS extends BaseJS {
     closePopup() {
         $("#modal-popup").hide();
     }
-   
+    // validateCombobox() {
+    //     // console.log("heheheh");
+    //     var value = $(this).val();
+    //     $(this).parent(".cbx-show").siblings(".cbx-hide").find(".cbx-select").hide();
+    //     // console.log($(this).parent(".cbx-show").parent(".cbx").getText());
+    //     // console.log(value);
+        
+    //     if($(this).parent(".cbx-show").parent(".cbx").getText() == null) {
+    //         console.log("nulllll")
+    //         $(this).parent(".cbx-show").addClass("border-red-combobox");
+    //         $(this).parent(".cbx-show").attr('title', 'Không đúng ');
+    //         $(this).attr("validate", false);
+    //     } else {
+    //         console.log("chuan");
+    //         $(this).parent(".cbx-show").removeClass("border-focus");
+    //         $(this).parent(".cbx-show").removeClass("border-red-combobox");
+    //         $(this).parent(".cbx-show").attr('title', '');
+    //         $(this).attr("validate", true);
+    //     }
+    //     if(value == "") {
+    //         $(this).parent(".cbx-show").addClass("border-red-combobox");
+    //         $(this).parent(".cbx-show").attr('title', 'Trường này không được phép bỏ trống');
+    //         $(this).attr("validate", false);
+    //     }  else {
+    //         $(this).removeClass("border-red-combobox");
+    //         $(this).attr("validate", true);
+    //     }
+        
+    // }
     /**
      * Validate bắt buộc nhập
      * Created: NTTAN (7/7/2021)
      */
     validateInput() {
         // Kiem tra dữ liệu đã nhập, nếu bỏ trông thì cảnh báo
+        console.log($(this));
         var value = $(this).val();
         if (!value) {
             $(this).addClass("border-red");
@@ -250,6 +290,7 @@ class EmployeeJS extends BaseJS {
             $(this).attr("validate", false);
         } else {
             $(this).removeClass("border-red");
+            $(this).attr('title', ' ');
             $(this).attr("validate", true);
         }
     }
@@ -351,6 +392,32 @@ class EmployeeJS extends BaseJS {
         } catch (error) {
             console.log(error);
         }
+    }
+    /**
+     * Hàm để bind data vào các combobox
+     * @param {employee} me 
+     */
+    bindDataCombobox(me) {
+        var selects = $('.cbx-hide[fieldName]');
+            selects.empty();
+            $.each(selects, function(index,select) {
+                var api = $(this).attr('api');
+                var fieldName = $(this).attr('fieldName');
+                var fieldValue = $(this).attr('fieldValue');
+                $.ajax({
+                    url: me.host + api,
+                    method: "GET"
+                }).done(function (res) {
+                    if (res) {
+                        $.each(res, function (index, obj) {
+                            var div =  $(`<div value = "${obj[fieldValue]}" class="cbx-select"><i class="fas fa-check"></i>${obj[fieldName]}</div>`);
+                            $(select).append(div);
+                        })
+                    }
+                }).fail(function (res) {
+                    Toast.toast("Thất bại", "error");
+                })
+            })
     }
 }
 

@@ -135,6 +135,7 @@
     border-color: #01B075;
 }
 
+
 label {
     margin-bottom: 8px;
 }
@@ -240,3 +241,6 @@ input.border-red {
 .background-color-focus {
     background-color: #09c969 ;
 }
+/* .border-red-combobox {
+    border: 1px solid #FF4747 !important;
+} */

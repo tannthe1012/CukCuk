@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../css/common/common.css">
     <link rel="stylesheet" href="../css/common/popup.css">
     <link rel="stylesheet" href="../css/common/toast.css">
+    <link rel="stylesheet" href="../css/common/combobox.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../content/font/fontawesome-5.15.1/css/all.min.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
@@ -281,16 +282,13 @@
                         <div class="form-row">
                             <div class="form-input">
                                 <label for="position">Vị trí</label><br>
-                                <div class="dropdown">
-                                    <div class="dropdown-show" >
-                                        <span id="txtPositionName" fieldName="PositionName"></span>
-                                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                                <div class="cbx" id="Position">
+                                    <div class="cbx-show">
+                                        <input type="text" >
+                                        <i class="fas fa-chevron-down cbx-icon-dropdown"></i>
                                     </div>
-                                    <div class="dropdown-hide">
-                                        <div class="dropdown-select"><i class="fas fa-check"></i>Giám Đốc</div>
-                                        <div class="dropdown-select"><i class="fas fa-check"></i>Nhân Viên</div>
-                                        <div class="dropdown-select"><i class="fas fa-check"></i>Thực tập sinh</div>
-                                        <div class="dropdown-select"><i class="fas fa-check"></i>Khác ...</div>
+                                    <div class="cbx-hide" fieldName = "PositionName" fieldName="PositionId" api="/v1/Positions">
+                                        
                                     </div>
                                 </div>
 
@@ -298,16 +296,13 @@
                             </div>
                             <div class="form-input">
                                 <label for="department">Phòng ban</label><br>
-                                <div class="dropdown">
-                                    <div class="dropdown-show" >
-                                        <span id="txtDepartmentName" fieldName="DepartmentName"></span>
-                                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                                <div class="cbx">
+                                    <div class="cbx-show">
+                                        <input type="text">
+                                        <i class="fas fa-chevron-down cbx-icon-dropdown"></i>
                                     </div>
-                                    <div class="dropdown-hide">
-                                        <div class="dropdown-select" value=><i class="fas fa-check"></i>Phòng Nhân sự</div>
-                                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng Công nghệ</div>
-                                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng đào tạo</div>
-                                        <div class="dropdown-select"><i class="fas fa-check"></i>Phòng Marketting</div>
+                                    <div class="cbx-hide" fieldName = "DepartmentName" fieldName="DepartmentId" api="/api/Department">
+                                        
                                     </div>
                                 </div>
 
@@ -387,6 +382,7 @@
     <script src="../js/common/dropdown-select.js"></script>
     <script src="../js/common/popup.js"></script>
     <script src="../js/common/toast.js"></script>
+    <script src="../js/common/combobox.js"></script>
 </body>
 
 </html>

@@ -4,26 +4,30 @@
 }
 
 .cbx {
+    margin-top: 4px;
     position: relative;
     height: 38px;
-    width: 400px;
-    
+    width: calc(100%);
+    margin-bottom: 12px;
 }
 .cbx-show {
     height: 38px;
     background-color: #ffffff;
     display: flex;
     border-radius: 4px;
-    box-shadow: #000000;
-    border: 1px solid #bbbbbb;
+    border: 1px solid;
+    border-color: #bbbbbb;
     margin-bottom: 5px;
-    width: 50%;
+    width: calc(100% - 2px);
+    /* overflow: hiddens; */
 }
 
 .cbx-show input {
+    height: calc(100% - 5px);
     flex: 1;
-    min-width: 100px;
+    min-width: 50px;
     padding-left: 10px;
+   
     border: none;
     font-family: GoogleSans-Regular;
 }
@@ -34,10 +38,12 @@
 .cbx-select {
     display: none;
     height: 16px;
-    width: 180px;
+    width: calc(100% - 10px);
     background-color: #ffffff;
-    padding: 12px 10px;
+    padding: 12px 0px 12px 10px;
     color: #000000;
+    padding-right: none
+    ;
 }
 
 
@@ -55,7 +61,7 @@
 
 .cbx-hide {
     position: absolute;
-    width: 50%;
+    width: 100%;
     box-shadow: 0px 0px 5px 0px #222222;
     z-index: 5;
 }
@@ -87,4 +93,12 @@
 }
 .cbx-select-focus {
     background-color: #E9EBEE;
+}
+
+.border-focus {
+    border-color: #01B075;
+}
+
+.border-red-combobox {
+    border-color: red;
 }

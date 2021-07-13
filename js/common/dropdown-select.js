@@ -30,7 +30,7 @@ $(document).ready(function() {
         $(this).parents(".dropdown-hide").siblings(".dropdown-show").toggleClass("dropdown-selector-active");
     })
     window.onclick = function(event) {
-        console.log(event.target);
+        // console.log(event.target);
         $('#contextmenu').css('display', `none`);
         if (!event.target.matches(".dropdown *")) {
             $(".dropdown-hide").css("display", "none");
